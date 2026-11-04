@@ -1,18 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Home, 
-  Sparkles, 
-  MapPin, 
-  MessageSquare 
+  Wrench, 
+  MapPin 
 } from 'lucide-react';
-import { WORKSHOP_DETAILS } from '../data/catalog.ts';
+import { scrollToTarget } from '../services/smoothScroll.ts';
+
+type NavTab = 'home' | 'services' | 'workshop';
 
 export const AppBottomNav: React.FC = () => {
-  const [activeItem, setActiveItem] = useState<'home' | 'services' | 'workshop'>('home');
+  const [activeItem, setActiveItem] = useState<NavTab>('home');
+  const isUserNavigating = useRef(false);
+  const navLockTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPos = window.scrollY + 200;
+      // Prevent scroll spy from overwriting active item while smooth scrolling after user tap
+      if (isUserNavigating.current) return;
+
+      const scrollPos = window.scrollY + 220;
       const contactEl = document.getElementById('contact-section');
       const servicesEl = document.getElementById('services-section');
 
@@ -26,99 +32,112 @@ export const AppBottomNav: React.FC = () => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    // Hook into Lenis momentum scroll updates
+    const lenis = (window as any).__lenis;
+    if (lenis && typeof lenis.on === 'function') {
+      lenis.on('scroll', handleScroll);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (lenis && typeof lenis.off === 'function') {
+        lenis.off('scroll', handleScroll);
+      }
+      if (navLockTimer.current) clearTimeout(navLockTimer.current);
+    };
   }, []);
 
-  const scrollTo = (id: string, item: 'home' | 'services' | 'workshop') => {
+  const scrollTo = (id: string, item: NavTab) => {
     setActiveItem(item);
+    
+    // Lock scroll spy during smooth momentum transit to avoid jitter
+    isUserNavigating.current = true;
+    if (navLockTimer.current) clearTimeout(navLockTimer.current);
+    navLockTimer.current = setTimeout(() => {
+      isUserNavigating.current = false;
+    }, 1100);
+
     if (item === 'home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      scrollToTarget(document.body, 0);
+    } else {
+      scrollToTarget(`#${id}`, -70);
     }
   };
 
-  const openWhatsApp = () => {
-    const defaultMessage = encodeURIComponent(
-      "Hello MAAC Wheels & Accessories Kumbakonam team, I would like to consult on automotive services and fitment for my car."
-    );
-    window.open(`https://wa.me/${WORKSHOP_DETAILS.whatsappRaw}?text=${defaultMessage}`, '_blank', 'noopener,noreferrer');
-  };
+  // Translate percentages for 3-tab sliding indicator: 0% for home, 100% for services, 200% for workshop
+  const indicatorOffset = 
+    activeItem === 'home' ? 'translate-x-0' :
+    activeItem === 'services' ? 'translate-x-full' :
+    'translate-x-[200%]';
 
   return (
     <nav 
-      aria-label="Mobile App Navigation"
-      className="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-[#0e241c]/95 backdrop-blur-xl border-t-2 border-[#234d3b] shadow-[0_-8px_30px_rgba(0,0,0,0.8)] pb-safe"
+      aria-label="Mobile Navigation"
+      className="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-[#fffdd0]/95 backdrop-blur-xl border-t border-[#dbd49b] shadow-[0_-4px_20px_rgba(85,107,47,0.12)] pb-[env(safe-area-inset-bottom,0px)]"
     >
-      <div className="grid grid-cols-4 h-16 items-center px-2 sm:px-6 max-w-md mx-auto">
-        {/* 1. Home */}
-        <button
-          onClick={() => scrollTo('root', 'home')}
-          className={`flex flex-col items-center justify-center gap-1 py-1 rounded-xl transition-all cursor-pointer ${
-            activeItem === 'home'
-              ? 'text-emerald-300 font-bold'
-              : 'text-emerald-200/60 hover:text-white'
-          }`}
-        >
-          <div className="relative">
-            <Home className="w-5 h-5" />
-            {activeItem === 'home' && (
-              <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" />
-            )}
-          </div>
-          <span className="text-[10px] font-label uppercase tracking-wider">Home</span>
-        </button>
+      <div className="relative max-w-md mx-auto">
+        {/* Animated Sliding Indicator Bar along the top edge across all 3 tabs */}
+        <div className="absolute top-0 left-0 w-full h-[2.5px] overflow-hidden pointer-events-none">
+          <div 
+            className={`h-full w-1/3 bg-[#556b2f] transition-transform duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] rounded-full ${indicatorOffset}`}
+          />
+        </div>
 
-        {/* 2. Services */}
-        <button
-          onClick={() => scrollTo('services-section', 'services')}
-          className={`flex flex-col items-center justify-center gap-1 py-1 rounded-xl transition-all cursor-pointer ${
-            activeItem === 'services'
-              ? 'text-emerald-300 font-bold'
-              : 'text-emerald-200/60 hover:text-white'
-          }`}
-        >
-          <div className="relative">
-            <Sparkles className="w-5 h-5" />
-            {activeItem === 'services' && (
-              <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" />
-            )}
-          </div>
-          <span className="text-[10px] font-label uppercase tracking-wider">Services</span>
-        </button>
+        {/* 3-Column Navigation Grid */}
+        <div className="grid grid-cols-3 h-16 items-center px-3 sm:px-6">
+          
+          {/* 1. Home */}
+          <button
+            onClick={() => scrollTo('root', 'home')}
+            className="flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition-transform active:scale-90 duration-150 cursor-pointer min-h-[48px]"
+          >
+            <div className={`p-1 rounded-lg transition-all duration-300 ${
+              activeItem === 'home' ? 'bg-[#556b2f]/15 text-[#556b2f] -translate-y-0.5 scale-105' : 'text-[#66774c]'
+            }`}>
+              <Home className="w-5 h-5 transition-transform duration-200" />
+            </div>
+            <span className={`text-[11px] font-heading uppercase tracking-wider transition-all duration-200 ${
+              activeItem === 'home' ? 'text-[#556b2f] font-bold' : 'text-[#66774c] font-medium'
+            }`}>
+              Home
+            </span>
+          </button>
 
-        {/* 3. Kumbakonam Workshop Desk */}
-        <button
-          onClick={() => scrollTo('contact-section', 'workshop')}
-          className={`flex flex-col items-center justify-center gap-1 py-1 rounded-xl transition-all cursor-pointer ${
-            activeItem === 'workshop'
-              ? 'text-emerald-300 font-bold'
-              : 'text-emerald-200/60 hover:text-white'
-          }`}
-        >
-          <div className="relative">
-            <MapPin className="w-5 h-5" />
-            {activeItem === 'workshop' && (
-              <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" />
-            )}
-          </div>
-          <span className="text-[10px] font-label uppercase tracking-wider">Workshop</span>
-        </button>
+          {/* 2. Services */}
+          <button
+            onClick={() => scrollTo('services-section', 'services')}
+            className="flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition-transform active:scale-90 duration-150 cursor-pointer min-h-[48px]"
+          >
+            <div className={`p-1 rounded-lg transition-all duration-300 ${
+              activeItem === 'services' ? 'bg-[#556b2f]/15 text-[#556b2f] -translate-y-0.5 scale-105' : 'text-[#66774c]'
+            }`}>
+              <Wrench className="w-5 h-5 transition-transform duration-200" />
+            </div>
+            <span className={`text-[11px] font-heading uppercase tracking-wider transition-all duration-200 ${
+              activeItem === 'services' ? 'text-[#556b2f] font-bold' : 'text-[#66774c] font-medium'
+            }`}>
+              Services
+            </span>
+          </button>
 
-        {/* 4. Direct WhatsApp Chat */}
-        <button
-          onClick={openWhatsApp}
-          className="flex flex-col items-center justify-center gap-1 py-1 text-emerald-300 hover:text-white transition-all cursor-pointer"
-        >
-          <div className="relative p-1.5 bg-[#163629] rounded-xl border border-emerald-400/40">
-            <MessageSquare className="w-4 h-4 fill-emerald-400 text-emerald-400" />
-            <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          </div>
-          <span className="text-[10px] font-label uppercase tracking-wider text-emerald-300 font-bold">WhatsApp</span>
-        </button>
+          {/* 3. Kumbakonam Workshop Desk */}
+          <button
+            onClick={() => scrollTo('contact-section', 'workshop')}
+            className="flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition-transform active:scale-90 duration-150 cursor-pointer min-h-[48px]"
+          >
+            <div className={`p-1 rounded-lg transition-all duration-300 ${
+              activeItem === 'workshop' ? 'bg-[#556b2f]/15 text-[#556b2f] -translate-y-0.5 scale-105' : 'text-[#66774c]'
+            }`}>
+              <MapPin className="w-5 h-5 transition-transform duration-200" />
+            </div>
+            <span className={`text-[11px] font-heading uppercase tracking-wider transition-all duration-200 ${
+              activeItem === 'workshop' ? 'text-[#556b2f] font-bold' : 'text-[#66774c] font-medium'
+            }`}>
+              Workshop
+            </span>
+          </button>
+        </div>
       </div>
     </nav>
   );

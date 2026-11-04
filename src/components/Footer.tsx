@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { ShieldCheck, ArrowRight, Check, MapPin, PhoneCall, MessageSquare, Sparkles } from 'lucide-react';
+import { ShieldCheck, ArrowRight, Check, MapPin, PhoneCall, Wrench, Clock, Compass } from 'lucide-react';
 import { WORKSHOP_DETAILS, SERVICES } from '../data/catalog.ts';
+import { scrollToTarget } from '../services/smoothScroll.ts';
 
 export const Footer: React.FC = () => {
   const [newsletterEmail, setNewsletterEmail] = useState('');
@@ -15,152 +16,168 @@ export const Footer: React.FC = () => {
   };
 
   const scrollToServices = () => {
-    const el = document.getElementById('services-section');
-    el?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const scrollToWorkshop = () => {
-    const el = document.getElementById('contact-section');
-    el?.scrollIntoView({ behavior: 'smooth' });
+    scrollToTarget('#services-section', -70);
   };
 
   return (
-    <footer className="bg-[#0a1c15] border-t-2 border-[#1f4736] text-emerald-100/70 text-xs pt-16 pb-12">
-      <div className="max-w-[1760px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {/* Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-          {/* Col 1: Brand Philosophy & Real Logo */}
-          <div className="lg:col-span-2 space-y-4">
+    <footer className="bg-[#222d13] border-t-2 border-[#556b2f] text-[#dbd49b] text-xs pt-10 sm:pt-14 lg:pt-16 pb-8 sm:pb-12">
+      <div className="w-full max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-12">
+
+        {/* ========================================================
+            RESPONSIVE FOOTER GRID:
+            - Mobile: Brand & Tagline on top (full width), 
+                      followed by a balanced 2-column grid for Services & Workshop,
+                      then Newsletter.
+            - Tablet (md): 2 or 3 balanced columns.
+            - Desktop (lg): 5 Columns in a clean single row.
+           ======================================================== */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10 items-start">
+
+          {/* COLUMN 1 & 2 on Desktop: Brand & Philosophy */}
+          <div className="sm:col-span-2 lg:col-span-2 space-y-3.5">
             <div className="flex items-center gap-3">
-              <div className="p-1 bg-white rounded-lg border border-[#2d5d45] shadow-md flex items-center justify-center">
+              <div className="p-1.5 bg-white rounded-lg border border-[#dbd49b] shadow-xs flex items-center justify-center shrink-0">
                 <img
                   src="/assets/aistudio/logo_45b62f30.jpeg"
                   alt="MAAC Logo"
-                  className="h-10 w-auto object-contain"
+                  className="h-9 sm:h-10 w-auto object-contain"
                 />
               </div>
               <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">
-                  <span className="font-title text-2xl text-white tracking-wider">MAAC</span>
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]"></span>
+                  <span className="font-heading text-xl sm:text-2xl text-[#fffdd0] tracking-tight font-bold leading-none">MAAC</span>
+                  <span className="w-2 h-2 rounded-full bg-[#556b2f]"></span>
                 </div>
-                <span className="font-label text-[10px] text-emerald-300 uppercase tracking-widest font-semibold">
+                <span className="font-body text-[10px] sm:text-xs text-[#dbd49b] uppercase tracking-widest font-semibold leading-none mt-1">
                   WHEELS & ACCESSORIES
                 </span>
               </div>
             </div>
 
-            <p className="text-sm text-emerald-100/80 font-body leading-relaxed max-w-md">
+            <p className="text-xs sm:text-sm text-[#dbd49b]/85 font-body leading-relaxed max-w-md">
               Your premier destination for high-performance automotive wheels, custom fitments,
               laser optics, cockpit electronics, and aerodynamic styling in Kumbakonam, Tamil Nadu.
             </p>
 
-            <div className="flex items-center gap-2 pt-1 text-emerald-200 text-xs font-body">
-              <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>100% Authentic Automotive Performance & Fitment Assurance</span>
+            <div className="flex items-center gap-2 text-[#fffdd0] text-xs sm:text-sm font-body pt-0.5">
+              <ShieldCheck className="w-4 h-4 text-[#8ea85c] shrink-0" />
+              <span>100% Fitment Verification & OEM Warranty Compliant</span>
             </div>
           </div>
 
-          {/* Col 2: Signature Services */}
-          <div>
-            <h4 className="font-subheading text-sm text-white mb-3.5 uppercase tracking-wider font-bold flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-              Signature Services
+          {/* COLUMN 2: Signature Services */}
+          <div className="space-y-3">
+            <h4 className="font-heading text-xs sm:text-sm text-[#fffdd0] uppercase tracking-wider font-bold flex items-center gap-2">
+              <Wrench className="w-4 h-4 text-[#8ea85c] shrink-0" />
+              <span>Workshop Services</span>
             </h4>
-            <ul className="space-y-2.5 text-xs font-body text-emerald-200/80">
+            <ul className="space-y-2 text-xs sm:text-sm font-body text-[#dbd49b]/85">
               {SERVICES.map(s => (
                 <li key={s.id}>
                   <button
                     onClick={scrollToServices}
-                    className="hover:text-emerald-300 transition-colors cursor-pointer text-left flex items-center gap-1.5"
+                    className="hover:text-[#fffdd0] transition-colors cursor-pointer text-left flex items-center gap-1.5 py-0.5 w-full"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/80" />
-                    <span>{s.title}</span>
+
+                    <span className="hover:underline underline-offset-2">{s.title}</span>
                   </button>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Col 3: Workshop Facility */}
-          <div>
-            <h4 className="font-subheading text-sm text-white mb-3.5 font-bold uppercase tracking-wider">
-              Workshop Facility
+          {/* COLUMN 3: Workshop Facility & Hours */}
+          <div className="space-y-3">
+            <h4 className="font-heading text-xs sm:text-sm text-[#fffdd0] font-bold uppercase tracking-wider flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-[#8ea85c] shrink-0" />
+              <span>Workshop Desk</span>
             </h4>
-            <div className="space-y-2.5 text-xs font-body text-emerald-200/80">
+            <div className="space-y-2.5 text-xs sm:text-sm font-body text-[#dbd49b]/85">
               <div className="flex items-start gap-2">
-                <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                <Compass className="w-4 h-4 text-[#8ea85c] shrink-0 mt-0.5" />
                 <a
                   href={WORKSHOP_DETAILS.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-emerald-300 transition-colors"
+                  className="hover:text-[#fffdd0] hover:underline transition-colors leading-snug"
                 >
-                  {WORKSHOP_DETAILS.address}
+                  NH 36 Bypass, Koranattukkaruppur, Kumbakonam, TN
                 </a>
               </div>
+
               <div className="flex items-center gap-2">
-                <PhoneCall className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <a href={`tel:${WORKSHOP_DETAILS.phone.replace(/[^0-9+]/g, '')}`} className="hover:text-white transition-colors">
+                <PhoneCall className="w-4 h-4 text-[#8ea85c] shrink-0" />
+                <a
+                  href={`tel:${WORKSHOP_DETAILS.phone.replace(/[^0-9+]/g, '')}`}
+                  className="hover:text-[#fffdd0] transition-colors font-mono-code font-semibold"
+                >
                   {WORKSHOP_DETAILS.phone}
                 </a>
               </div>
-              <div className="flex items-center gap-2">
-                <MessageSquare className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span>Mon – Sat: 9:30 AM – 8:30 PM</span>
+
+              <div className="flex items-start gap-2">
+                <Clock className="w-4 h-4 text-[#8ea85c] shrink-0 mt-0.5" />
+                <div className="leading-snug">
+                  <span className="block font-medium">Mon–Sat: 9:30 AM–8:30 PM</span>
+                  <span className="block text-[11px] sm:text-xs text-[#dbd49b]/70">Sun: 10:00 AM–4:00 PM (Emergency Fitment)</span>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Col 4: Performance Newsletter */}
-          <div>
-            <h4 className="font-subheading text-sm text-white mb-3.5 font-bold uppercase tracking-wider">
+          {/* COLUMN 4: Fitment Updates Newsletter */}
+          <div className="space-y-3">
+            <h4 className="font-heading text-xs sm:text-sm text-[#fffdd0] font-bold uppercase tracking-wider">
               Fitment Updates
             </h4>
-            <p className="text-xs text-emerald-200/75 font-body mb-3">
-              Subscribe for new forged arrivals, ceramic armor treatments, and build releases.
+            <p className="text-xs sm:text-sm text-[#dbd49b]/80 font-body leading-relaxed">
+              Get immediate alerts when new forged wheel lines and audio upgrades land in the bay.
             </p>
-            <form onSubmit={handleSubscribe} className="space-y-2">
-              <div className="relative">
+            <form onSubmit={handleSubscribe} className="space-y-2 pt-1">
+              <div className="relative flex items-center">
                 <input
                   type="email"
+                  inputMode="email"
+                  autoComplete="email"
                   value={newsletterEmail}
                   onChange={e => setNewsletterEmail(e.target.value)}
                   placeholder="Enter email address"
-                  className="w-full bg-[#122c21] border border-[#2d5d45] rounded-xl px-3 py-2 text-xs text-white placeholder-emerald-300/40 focus:outline-none focus:border-emerald-400 font-body"
+                  className="w-full bg-[#2c3a19] border border-[#556b2f] rounded-lg px-3 py-2 text-xs sm:text-sm text-[#fffdd0] placeholder-[#dbd49b]/50 focus:outline-none focus:border-[#8ea85c] font-body min-h-[42px] pr-10"
                 />
                 <button
                   type="submit"
-                  className="absolute right-1 top-1 bottom-1 px-2.5 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold rounded-lg text-xs transition-colors flex items-center justify-center cursor-pointer"
+                  className="absolute right-1 w-8 h-8 bg-[#556b2f] hover:bg-[#3f5023] text-[#fffdd0] font-bold rounded-md transition-colors flex items-center justify-center cursor-pointer min-h-[34px] min-w-[34px]"
+                  title="Subscribe"
+                  aria-label="Subscribe to updates"
                 >
-                  <ArrowRight className="w-3.5 h-3.5 text-slate-950" />
+                  <ArrowRight className="w-4 h-4 text-[#fffdd0]" />
                 </button>
               </div>
               {subscribed && (
-                <p className="text-[11px] text-emerald-400 font-mono-code flex items-center gap-1 font-semibold">
-                  <Check className="w-3.5 h-3.5" /> Subscribed to MAAC Updates!
+                <p className="text-xs text-[#8ea85c] font-mono-code flex items-center gap-1 font-semibold">
+                  <Check className="w-3.5 h-3.5" /> Subscribed successfully!
                 </p>
               )}
             </form>
           </div>
         </div>
 
-        {/* Bottom Strip */}
-        <div className="border-t border-[#1f4736] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono-code text-emerald-300/70">
-          <p>© {new Date().getFullYear()} MAAC Wheels & Accessories. Master Automotive Craftsmanship, Kumbakonam.</p>
-          
-          {/* Powered by VelzenLabs */}
-          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#122c21] border border-[#2d5d45]">
-            <span className="text-emerald-300/80">Powered by -</span>
-            <span className="text-emerald-400 font-bold tracking-wider hover:text-emerald-300 transition-colors">
-              VelzenLabs
-            </span>
-          </div>
+        {/* ========================================================
+            BOTTOM LEGAL & ATTRIBUTION STRIP
+           ======================================================== */}
+        <div className="border-t border-[#556b2f]/50 pt-5 sm:pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono-code text-[#dbd49b]/70 text-center sm:text-left">
+          <p>© {new Date().getFullYear()} MAAC Wheels & Accessories. Kumbakonam, TN.</p>
 
-          <div className="flex items-center gap-4 text-[11px]">
-            <span className="text-emerald-300/80">Deep Green & Mint Automotive Palette</span>
-            <span>•</span>
-            <span className="text-emerald-400 font-bold">Universal Car Fitment</span>
+          <div className="flex items-center gap-3">
+            {/* Powered by VelzenLabs */}
+            <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#2c3a19] border border-[#556b2f]">
+              <span className="text-[#dbd49b]/80">Powered by</span>
+              <span className="text-[#fffdd0] font-bold tracking-wider">
+                VelzenLabs
+              </span>
+            </div>
+
+
           </div>
         </div>
       </div>

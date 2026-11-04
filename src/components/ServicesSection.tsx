@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { 
-  ArrowRight, 
-  Sparkles, 
-  CheckCircle2, 
-  MessageSquare, 
-  ShieldCheck, 
-  Layers, 
+import {
+  ArrowRight,
+  CheckCircle2,
+  MessageSquare,
+  ShieldCheck,
+  Layers,
   Wrench,
   Disc,
   Volume2,
   Sun,
-  Palette
+  Palette,
+  X
 } from 'lucide-react';
 import { ServiceItem } from '../types.ts';
 import { SERVICES, getServiceWhatsAppUrl, WORKSHOP_DETAILS } from '../data/catalog.ts';
@@ -25,19 +25,19 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
   const getServiceIcon = (id: string) => {
     switch (id) {
       case 'seat-covers-leathers':
-        return <Layers className="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400" />;
+        return <Layers className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#fffdd0]" />;
       case 'ceramic-coating':
-        return <ShieldCheck className="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400" />;
+        return <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#fffdd0]" />;
       case 'sun-films':
-        return <Sun className="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400" />;
+        return <Sun className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#fffdd0]" />;
       case 'rubbing-and-polishing':
-        return <Palette className="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400" />;
+        return <Palette className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#fffdd0]" />;
       case 'car-audio-system':
-        return <Volume2 className="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400" />;
+        return <Volume2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#fffdd0]" />;
       case 'alloy-wheels':
-        return <Disc className="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400" />;
+        return <Disc className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#fffdd0]" />;
       default:
-        return <Wrench className="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400" />;
+        return <Wrench className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#fffdd0]" />;
     }
   };
 
@@ -52,122 +52,98 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
   return (
     <section
       id="services-section"
-      className="relative py-8 sm:py-16 lg:py-20 px-3 sm:px-6 lg:px-8 max-w-[1760px] mx-auto bg-[#0d231a]"
+      className="relative py-8 sm:py-16 lg:py-20 px-3 sm:px-6 lg:px-8 max-w-[1320px] mx-auto bg-[#fffdd0]"
     >
-      {/* Decorative ambient gradients */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#1f4a36]/30 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 left-0 w-96 h-96 bg-[#2d5740]/25 rounded-full blur-[140px] pointer-events-none" />
-
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-12 lg:mb-14 border-b border-[#234d3b] pb-4 sm:pb-6 relative z-10">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-10 lg:mb-12 border-b border-[#dbd49b] pb-4 sm:pb-6 relative z-10 gap-3 sm:gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
-            <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-emerald-400 shadow-[0_0_10px_#34d399]" />
-            <span className="font-label text-emerald-300 text-[10px] sm:text-xs font-bold tracking-widest uppercase">
-              Automotive Craftsmanship & Treatment
-            </span>
-            <span className="mx-1.5 text-[#2d5d45] hidden sm:inline">•</span>
-            <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-0.5 rounded-full font-label text-[10px] sm:text-xs bg-[#163629] border border-[#2d5d45] text-emerald-200">
-              <Sparkles className="w-3 h-3 text-emerald-400" />
-              6 Signature Services
+          
+
+
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label text-[10px] sm:text-xs bg-[#f5f1c6] border border-[#dbd49b] text-[#556b2f] font-semibold">
+              <Wrench className="w-3 h-3 text-[#556b2f]" />
+              6 Signature Disciplines
             </span>
           </div>
 
-          <h2 className="font-heading text-2xl sm:text-4xl lg:text-6xl text-white uppercase tracking-tight">
-            Our Premium <span className="text-emerald-400 drop-shadow-[0_2px_15px_rgba(52,211,153,0.3)]">Services</span>
+          <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-[#1c2610] uppercase tracking-tight">
+            Our Workshop <span className="text-[#556b2f]">Services</span>
           </h2>
         </div>
 
-        <p className="mt-2 md:mt-0 text-xs sm:text-sm lg:text-base text-emerald-100/75 max-w-lg font-body leading-relaxed">
-          Comprehensive expert automotive detailing, bespoke interior tailoring, audio engineering, and exterior stance upgrades executed to showroom perfection.
+        <p className="text-xs sm:text-base text-[#405126] max-w-lg font-body leading-relaxed">
+          Comprehensive expert automotive detailing, bespoke interior tailoring, audio engineering, and exterior stance upgrades executed to factory specification.
         </p>
       </div>
 
       {/* ========================================================
-          6 SIGNATURE SERVICES GRID:
-          - Mobile: 2 Columns (2x2 grid layout)
+          2 x 2 CARD LAYOUT (IDENTICAL CARD SIZE ACROSS ALL ITEMS):
+          - Mobile: 2 Columns (2x2 viewport grid)
           - Tablet: 2 Columns
-          - Desktop: 3 Columns (3x2 grid layout)
+          - Desktop: 3 Columns
+          All cards have synchronized aspect ratios, fixed title/description heights, and pinned bottom bars.
          ======================================================== */}
-      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6 lg:gap-8 relative z-10">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-5 lg:gap-7 relative z-10 items-stretch">
         {SERVICES.map((service, index) => {
           const waUrl = getServiceWhatsAppUrl(service);
 
           return (
             <div
               key={service.id}
-              className="group relative bg-[#122c21] rounded-xl sm:rounded-2xl border sm:border-2 border-[#234d3b] hover:border-emerald-400/80 overflow-hidden transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 sm:hover:-translate-y-1.5 hover:shadow-xl hover:shadow-[#06120c] cursor-pointer"
+              className="group relative bg-[#fdfcf3] rounded-xl sm:rounded-2xl border border-[#dbd49b] hover:border-[#556b2f] overflow-hidden transition-all duration-200 flex flex-col justify-between shadow-xs hover:shadow-md cursor-pointer h-full"
               onClick={() => handleCardClick(service)}
             >
-              {/* Top Image Showcase */}
-              <div className="relative w-full aspect-[16/11] sm:aspect-[16/10] bg-black overflow-hidden border-b border-[#234d3b]">
+              {/* Top Image Showcase with Fixed Aspect Ratio */}
+              <div className="relative w-full aspect-[16/11] sm:aspect-[16/10] bg-[#1c2610] overflow-hidden border-b border-[#dbd49b] shrink-0">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108 brightness-95 group-hover:brightness-105"
+                  className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                   loading="lazy"
                 />
-
-                {/* Gradient Overlays for contrast */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#122c21] via-transparent to-black/40 opacity-90" />
-
-                {/* Badge (Black accent with mint border) */}
-                <div className="absolute top-2 left-2 sm:top-3.5 sm:left-3.5 flex items-center gap-1 sm:gap-1.5 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-black/90 border border-emerald-400/50 backdrop-blur-md shadow-lg">
-                  {getServiceIcon(service.id)}
-                  <span className="font-label text-[8px] sm:text-[10px] lg:text-xs font-bold text-emerald-300 tracking-wider uppercase">
-                    {service.badge}
-                  </span>
-                </div>
-
-                {/* Order Index Pill */}
-                <div className="absolute top-2 right-2 sm:top-3.5 sm:right-3.5 w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-black/85 border border-[#2d5d45] flex items-center justify-center font-heading text-[10px] sm:text-xs text-emerald-300">
-                  0{index + 1}
-                </div>
               </div>
 
-              {/* Card Content */}
-              <div className="p-2.5 sm:p-5 lg:p-6 flex-1 flex flex-col justify-between bg-[#122c21]">
+              {/* Uniform Card Body - Synchronized Heights */}
+              <div className="p-2.5 sm:p-4 lg:p-5 flex-1 flex flex-col justify-between bg-[#fdfcf3]">
                 <div>
-                  <h3 className="font-heading text-sm sm:text-2xl lg:text-3xl text-white group-hover:text-emerald-300 transition-colors uppercase tracking-wide leading-tight line-clamp-1 sm:line-clamp-none">
+                  {/* Fixed 1-line Title container */}
+                  <h3 className="font-heading text-xs sm:text-lg lg:text-xl text-[#1c2610] group-hover:text-[#556b2f] transition-colors uppercase tracking-tight leading-tight line-clamp-1 h-4 sm:h-6 flex items-center">
                     {service.title}
                   </h3>
-                  
-                  <p className="font-subheading text-[10px] sm:text-xs lg:text-sm text-emerald-300/90 font-medium mt-0.5 sm:mt-1 mb-1.5 sm:mb-3 line-clamp-1">
+
+                  {/* Fixed 1-line Subtitle container */}
+                  <p className="font-subheading text-[10px] sm:text-xs text-[#556b2f] font-semibold mt-0.5 mb-1 sm:mb-2 line-clamp-1 h-3.5 sm:h-4">
                     {service.subtitle}
                   </p>
 
-                  <p className="font-body text-[10px] sm:text-xs lg:text-sm text-emerald-100/80 line-clamp-2 sm:line-clamp-3 leading-normal sm:leading-relaxed mb-2 sm:mb-4">
+                  {/* Fixed 2-line Description container */}
+                  <p className="font-body text-[10px] sm:text-xs text-[#405126] line-clamp-2 leading-tight sm:leading-relaxed mb-2 sm:mb-3 h-7 sm:h-9 overflow-hidden">
                     {service.description}
                   </p>
 
-                  {/* Highlights list - Compact on mobile (first 2), all 4 on sm+ */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-2 pt-1 border-t border-[#1c4333]">
-                    {service.highlights.slice(0, 4).map((h, i) => (
-                      <div 
-                        key={i} 
-                        className={`items-center gap-1 sm:gap-1.5 text-[9px] sm:text-[11px] lg:text-xs text-emerald-200/90 ${
-                          i >= 2 ? 'hidden sm:flex' : 'flex'
-                        }`}
-                      >
-                        <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-400 shrink-0" />
-                        <span className="truncate">{h}</span>
+                  {/* Highlights list: Exactly 2 items per card for uniform height */}
+                  <div className="grid grid-cols-1 gap-1 pt-1.5 border-t border-[#dbd49b]/70 min-h-[34px] sm:min-h-[40px]">
+                    {service.highlights.slice(0, 2).map((h, i) => (
+                      <div key={i} className="flex items-center gap-1 text-[9px] sm:text-xs text-[#222d13]">
+                        <CheckCircle2 className="w-3 h-3 text-[#556b2f] shrink-0" />
+                        <span className="truncate font-medium">{h}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Card Action Footer */}
-                <div className="mt-2.5 sm:mt-6 pt-2 sm:pt-4 border-t border-[#1f4736] flex items-center justify-between gap-1.5 sm:gap-3">
+                {/* Card Action Footer: Pinned at bottom with mt-auto */}
+                <div className="mt-auto pt-2 sm:pt-3 border-t border-[#dbd49b] flex items-center justify-between gap-1.5 sm:gap-2">
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       window.open(waUrl, '_blank', 'noopener,noreferrer');
                     }}
-                    className="flex-1 inline-flex items-center justify-center gap-1 sm:gap-2 py-1.5 sm:py-2.5 px-2 sm:px-4 rounded-lg sm:rounded-xl bg-black/70 hover:bg-black border border-emerald-500/50 hover:border-emerald-400 text-emerald-300 font-button text-[10px] sm:text-xs lg:text-sm font-bold uppercase tracking-wider transition-all duration-200 shadow-md group/btn"
+                    className="flex-1 inline-flex items-center justify-center gap-1 sm:gap-1.5 py-1.5 sm:py-2 px-1.5 sm:px-3 rounded-lg bg-[#556b2f] hover:bg-[#3f5023] active:bg-[#222d13] text-[#fffdd0] font-heading text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all shadow-xs cursor-pointer min-h-[36px] sm:min-h-[40px]"
                   >
-                    <MessageSquare className="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 shrink-0" />
-                    <span className="hidden sm:inline">Inquire Service</span>
-                    <span className="sm:hidden">Inquire</span>
+                    <MessageSquare className="w-3.5 h-3.5 fill-current text-[#fffdd0] shrink-0" />
+                    <span>Inquire</span>
                   </button>
 
                   <button
@@ -175,11 +151,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                       e.stopPropagation();
                       setActiveModalService(service);
                     }}
-                    className="p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#18392b] hover:bg-[#204a38] border border-[#2d5d45] text-emerald-300 hover:text-white transition-colors shrink-0"
+                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#f5f1c6] hover:bg-[#ebe5b0] border border-[#dbd49b] text-[#556b2f] hover:text-[#1c2610] transition-colors shrink-0 flex items-center justify-center cursor-pointer min-h-[32px] sm:min-h-[40px]"
                     title="View service details"
                     aria-label={`View details for ${service.title}`}
                   >
-                    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
+                    <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </button>
                 </div>
               </div>
@@ -190,101 +166,104 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
 
       {/* Service Detail Modal */}
       {activeModalService && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200"
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-150"
           onClick={() => setActiveModalService(null)}
+          role="dialog"
+          aria-modal="true"
         >
-          <div 
-            className="relative w-full max-w-2xl bg-[#122c21] border-2 border-emerald-400/60 rounded-2xl overflow-hidden shadow-2xl shadow-black/95 max-h-[90vh] flex flex-col"
+          <div
+            className="relative w-full max-w-2xl bg-[#fdfcf3] border-2 border-[#556b2f] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl max-h-[92svh] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Image Header */}
-            <div className="relative w-full h-48 sm:h-72 bg-black overflow-hidden">
-              <img 
-                src={activeModalService.image} 
-                alt={activeModalService.title} 
+            <div className="relative w-full h-40 sm:h-56 md:h-64 bg-[#1c2610] overflow-hidden shrink-0">
+              <img
+                src={activeModalService.image}
+                alt={activeModalService.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#122c21] via-transparent to-black/60" />
-              
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1c2610] via-black/30 to-transparent" />
+
               <button
                 onClick={() => setActiveModalService(null)}
-                className="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/80 border border-emerald-400/60 text-white hover:text-emerald-300 flex items-center justify-center text-sm sm:text-base font-bold transition-colors cursor-pointer"
+                className="absolute top-3 right-3 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#fdfcf3] border border-[#dbd49b] text-[#1c2610] hover:text-[#556b2f] flex items-center justify-center transition-colors cursor-pointer shadow-md min-h-[40px] min-w-[40px]"
+                aria-label="Close dialog"
               >
-                ✕
+                <X className="w-5 h-5" />
               </button>
 
-              <div className="absolute bottom-3 left-4 right-4 sm:bottom-4 sm:left-5 sm:right-5">
-                <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-black/85 border border-emerald-400/50 text-emerald-300 font-label text-[10px] sm:text-xs font-bold uppercase tracking-wider inline-block mb-1.5 sm:mb-2">
+              <div className="absolute bottom-2.5 left-3.5 right-3.5 sm:bottom-4 sm:left-6 sm:right-6">
+                <span className="px-2.5 py-0.5 rounded-md bg-[#556b2f] text-[#fffdd0] font-label text-[10px] sm:text-xs font-bold uppercase tracking-wider inline-block mb-1">
                   {activeModalService.badge}
                 </span>
-                <h3 className="font-heading text-2xl sm:text-4xl text-white uppercase tracking-wide">
+                <h3 className="font-heading text-xl sm:text-3xl text-white uppercase tracking-tight">
                   {activeModalService.title}
                 </h3>
-                <p className="font-subheading text-xs sm:text-sm text-emerald-300 font-semibold">
+                <p className="font-subheading text-xs sm:text-sm text-[#fffdd0]/90 font-medium">
                   {activeModalService.subtitle}
                 </p>
               </div>
             </div>
 
             {/* Modal Body */}
-            <div className="p-4 sm:p-6 overflow-y-auto space-y-4 sm:space-y-5">
+            <div className="p-4 sm:p-6 overflow-y-auto space-y-3.5 sm:space-y-5">
               <div>
-                <h4 className="font-heading text-base sm:text-lg text-emerald-300 uppercase tracking-wider mb-1.5 sm:mb-2">
+                <h4 className="font-heading text-xs sm:text-sm text-[#556b2f] uppercase tracking-wider font-bold mb-1">
                   Service Overview
                 </h4>
-                <p className="font-body text-xs sm:text-sm text-emerald-100/90 leading-relaxed">
+                <p className="font-body text-xs sm:text-sm text-[#405126] leading-relaxed">
                   {activeModalService.description}
                 </p>
               </div>
 
               <div>
-                <h4 className="font-heading text-base sm:text-lg text-emerald-300 uppercase tracking-wider mb-2.5 sm:mb-3">
+                <h4 className="font-heading text-xs sm:text-sm text-[#556b2f] uppercase tracking-wider font-bold mb-1.5">
                   Key Specifications & Advantages
                 </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {activeModalService.features.map((feat, idx) => (
-                    <div key={idx} className="flex items-start gap-2 bg-[#17382a] p-2.5 sm:p-3 rounded-xl border border-[#2d5d45]">
-                      <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 shrink-0 mt-0.5" />
-                      <span className="text-xs text-emerald-100 font-medium">{feat}</span>
+                    <div key={idx} className="flex items-start gap-2 bg-[#f5f1c6] p-2.5 rounded-lg border border-[#dbd49b]">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#556b2f] shrink-0 mt-0.5" />
+                      <span className="text-xs text-[#1c2610] font-medium">{feat}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Consultation Details */}
-              <div className="p-3.5 sm:p-4 rounded-xl bg-black/50 border border-[#2d5d45] flex items-center justify-between gap-4">
+              <div className="p-3 sm:p-3.5 rounded-lg bg-[#f5f1c6] border border-[#dbd49b] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4">
                 <div>
-                  <p className="text-[11px] sm:text-xs text-emerald-400 font-bold uppercase tracking-wider">
+                  <p className="text-xs text-[#556b2f] font-bold uppercase tracking-wider">
                     Location & Booking
                   </p>
-                  <p className="text-[11px] sm:text-xs text-emerald-200 mt-0.5">
+                  <p className="text-xs text-[#1c2610] mt-0.5 font-body">
                     {WORKSHOP_DETAILS.address}
                   </p>
                 </div>
-                <div className="text-right shrink-0">
-                  <span className="text-[10px] sm:text-[11px] text-emerald-400 font-semibold block">Same-Day Fitment</span>
-                  <span className="text-[10px] sm:text-[11px] text-emerald-300/80">Expert Mechanics</span>
+                <div className="text-left sm:text-right shrink-0">
+                  <span className="text-xs text-[#556b2f] font-bold block">Same-Day Fitment</span>
+                  <span className="text-xs text-[#66774c]">Expert Mechanics</span>
                 </div>
               </div>
             </div>
 
             {/* Modal Actions */}
-            <div className="p-3.5 sm:p-5 border-t border-[#1f4736] bg-[#0f251c] flex items-center justify-end gap-2.5 sm:gap-3">
+            <div className="p-3 sm:p-4 border-t border-[#dbd49b] bg-[#f7f4c9] flex items-center justify-end gap-2.5 sm:gap-3 shrink-0">
               <button
                 onClick={() => setActiveModalService(null)}
-                className="px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl border border-[#2d5d45] text-emerald-300 hover:bg-[#163629] text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+                className="px-4 py-2.5 rounded-lg border border-[#dbd49b] text-[#405126] hover:bg-[#ebe5b0] text-xs sm:text-sm font-heading font-bold uppercase tracking-wider transition-colors cursor-pointer min-h-[44px]"
               >
                 Close
               </button>
-              
+
               <a
                 href={getServiceWhatsAppUrl(activeModalService)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-400 text-slate-950 font-button text-xs font-bold uppercase tracking-wider shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 hover:scale-[1.02] transition-all cursor-pointer"
+                className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-lg bg-[#556b2f] hover:bg-[#3f5023] text-[#fffdd0] font-heading text-xs sm:text-sm font-bold uppercase tracking-wider shadow-xs transition-all cursor-pointer min-h-[44px]"
               >
-                <MessageSquare className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-950" />
+                <MessageSquare className="w-4 h-4 text-[#fffdd0] fill-current" />
                 <span>Book On WhatsApp</span>
               </a>
             </div>

@@ -1,29 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { AlertOctagon, RotateCcw, WifiOff, RefreshCw } from 'lucide-react';
+import { AlertTriangle, RotateCcw, WifiOff, RefreshCw } from 'lucide-react';
 
 export const NotFoundPage: React.FC<{ onReturnHome: () => void }> = ({ onReturnHome }) => {
   return (
-    <div className="min-h-[70vh] flex items-center justify-center px-4 py-16 text-center">
-      <div className="max-w-md bg-neutral-900 border border-neutral-800 p-8 rounded-sm shadow-2xl space-y-4">
-        <div className="w-16 h-16 bg-red-950/60 border border-red-800/80 rounded-full flex items-center justify-center mx-auto text-red-500">
-          <AlertOctagon className="w-8 h-8" />
+    <div className="min-h-[70svh] flex items-center justify-center px-4 py-12 sm:py-16 text-center bg-[#fffdd0]">
+      <div className="w-full max-w-md bg-[#fdfcf3] border border-[#dbd49b] p-6 sm:p-8 rounded-xl sm:rounded-2xl shadow-md space-y-4">
+        <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#f5f1c6] border border-[#dbd49b] rounded-full flex items-center justify-center mx-auto text-[#556b2f]">
+          <AlertTriangle className="w-7 h-7 sm:w-8 sm:h-8" />
         </div>
-        <span className="text-xs font-mono-code text-red-500 uppercase tracking-widest block font-bold">
-          404 STATUS CODE • SECTOR NOT FOUND
+        <span className="text-xs font-mono-code text-[#556b2f] uppercase tracking-wider block font-bold">
+          404 Status • Page Not Found
         </span>
-        <h2 className="font-display font-black text-4xl text-white uppercase tracking-wider">
-          WRONG TURN — OFF TRACK
+        <h2 className="font-heading font-bold text-2xl sm:text-3xl text-[#1c2610] uppercase tracking-tight">
+          Sector Not Found
         </h2>
-        <p className="text-xs text-neutral-400 font-mono-code leading-relaxed">
-          The trajectory or part specification you attempted to reach has been repositioned or retired from our paddock.
+        <p className="text-xs sm:text-sm text-[#405126] font-body leading-relaxed">
+          The link or part specification you attempted to reach has been repositioned or retired from our workshop index.
         </p>
-        <div className="pt-4">
+        <div className="pt-2">
           <button
             onClick={onReturnHome}
-            className="w-full py-3 bg-red-600 hover:bg-red-700 text-white font-display font-bold text-xs uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full py-3.5 bg-[#556b2f] hover:bg-[#3f5023] text-[#fffdd0] font-heading font-bold text-xs sm:text-sm uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs min-h-[44px]"
           >
             <RotateCcw className="w-4 h-4" />
-            <span>RETURN TO PIT LANE</span>
+            <span>Return to Workshop Home</span>
           </button>
         </div>
       </div>
@@ -50,16 +50,16 @@ export const OfflineIndicator: React.FC = () => {
   if (isOnline) return null;
 
   return (
-    <div className="fixed top-0 inset-x-0 z-50 bg-red-600 text-white px-4 py-2 text-xs font-mono-code flex items-center justify-between shadow-xl">
+    <div className="fixed top-0 inset-x-0 z-50 bg-[#556b2f] text-[#fffdd0] px-4 pt-[max(0.5rem,env(safe-area-inset-top,0.5rem))] pb-2 text-xs font-mono-code flex items-center justify-between shadow-md">
       <div className="flex items-center gap-2">
         <WifiOff className="w-4 h-4" />
-        <span>TELEMETRY CONNECTION LOST. BROWSING IN LOCAL CACHED MODE.</span>
+        <span className="text-xs">CONNECTION INTERRUPTED. BROWSING OFFLINE CACHED MODE.</span>
       </div>
       <button
         onClick={() => window.location.reload()}
-        className="px-2 py-0.5 bg-black/40 hover:bg-black/60 rounded text-[10px] uppercase font-bold flex items-center gap-1"
+        className="px-2.5 py-1 bg-[#3f5023] hover:bg-[#222d13] text-[#fffdd0] rounded text-xs uppercase font-bold flex items-center gap-1 cursor-pointer min-h-[32px]"
       >
-        <RefreshCw className="w-3 h-3" />
+        <RefreshCw className="w-3.5 h-3.5" />
         RETRY
       </button>
     </div>

@@ -1,143 +1,206 @@
 @import "tailwindcss";
 
+@theme {
+  --font-title: 'Barlow Condensed', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Barlow Condensed', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-subheading: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-button: 'Barlow Condensed', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-price: 'Barlow Condensed', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-label: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-code: 'JetBrains Mono', monospace;
+
+  /* Fluid typography scale using clamp() */
+  --text-2xs: clamp(0.6875rem, 0.65rem + 0.2vw, 0.75rem);
+  --text-xs: clamp(0.75rem, 0.72rem + 0.2vw, 0.8125rem);
+  --text-sm: clamp(0.875rem, 0.84rem + 0.2vw, 0.9375rem);
+  --text-base: clamp(0.9375rem, 0.9rem + 0.25vw, 1.0625rem);
+  --text-lg: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.35rem + 0.75vw, 1.875rem);
+  --text-3xl: clamp(1.875rem, 1.65rem + 1.1vw, 2.375rem);
+  --text-4xl: clamp(2.25rem, 1.9rem + 1.6vw, 3rem);
+  --text-5xl: clamp(2.75rem, 2.2rem + 2.2vw, 4rem);
+  --text-6xl: clamp(3.25rem, 2.5rem + 3.2vw, 5.25rem);
+  --text-hero: clamp(2.25rem, 1.5rem + 3.8vw, 5.25rem);
+}
+
 @layer base {
   :root {
-    --font-title: 'Bebas Neue', system-ui, sans-serif;
-    --font-heading: 'Bebas Neue', system-ui, sans-serif;
-    --font-subheading: 'Montserrat', system-ui, sans-serif;
-    --font-body: 'Montserrat', system-ui, sans-serif;
-    --font-button: 'Montserrat', system-ui, sans-serif;
-    --font-price: 'Bebas Neue', system-ui, sans-serif;
-    --font-label: 'Montserrat', system-ui, sans-serif;
-    --font-code: 'JetBrains Mono', monospace;
+    /* Theme Tokens: Primary (#556B2F) & Background (#FFFDD0) */
+    --color-primary: #556b2f;
+    --color-primary-dark: #3f5023;
+    --color-primary-deep: #222d13;
+    --color-primary-light: #6e8840;
+    --color-primary-subtle: #edf3e0;
 
-    /* Green Palette Design Tokens */
-    --color-deep-green-bg: #0d231a;
-    --color-deep-green-surface: #122c21;
-    --color-deep-green-card: #163629;
-    --color-deep-green-border: #234d3b;
-    --color-olive-dark: #2a4838;
-    --color-olive: #3b5f4c;
-    --color-olive-light: #527e65;
-    --color-mint: #34d399;
-    --color-mint-light: #a7f3d0;
-    --color-mint-bright: #6ee7b7;
-    --color-accent-black: #060c09;
+    --color-bg-cream: #fffdd0;
+    --color-surface-cream: #f7f4c9;
+    --color-surface-card: #fdfcf3;
+    --color-surface-white: #ffffff;
+    --color-border-warm: #dbd49b;
+    --color-border-subtle: #e9e3b8;
+    --color-border-olive: #556b2f;
 
-    --accent: #34d399;
-    --accent-hover: #10b981;
-    --accent-red: #ef4444;
+    --color-text-main: #1c2610;
+    --color-text-secondary: #405126;
+    --color-text-muted: #66774c;
+    --color-text-on-primary: #fffdd0;
+
+    --accent-red: #b91c1c;
+    --accent-amber: #b45309;
   }
 
   html {
     font-size: 16px;
-    background-color: #0d231a;
-  }
-
-  @media (max-width: 640px) {
-    html {
-      font-size: 14px;
-    }
+    background-color: #fffdd0;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     font-family: var(--font-body);
     font-weight: 400;
-    background-color: #0d231a;
-    color: #f0fdf4;
+    background-color: #fffdd0;
+    color: #1c2610;
     overflow-x: hidden;
     line-height: 1.6;
+    font-size: 0.9375rem; /* Minimum 15px on mobile */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Title & Main Headings */
-  h1, h2 {
-    font-family: var(--font-title);
-    font-weight: 400;
-    letter-spacing: 0.03em;
-    color: #ffffff;
+  @media (min-width: 640px) {
+    body {
+      font-size: 1rem; /* 16px from sm breakpoint */
+    }
   }
 
-  /* Subheadings */
+  /* Headings */
+  h1, h2 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: #1c2610;
+    line-height: 1.08;
+  }
+
   h3, h4, h5, h6 {
     font-family: var(--font-subheading);
     font-weight: 600;
-    color: #ffffff;
+    color: #1c2610;
+    line-height: 1.25;
   }
 
   p {
     font-family: var(--font-body);
     font-weight: 400;
     line-height: 1.65;
+    color: #405126;
   }
 
-  /* Buttons */
   button {
     font-family: var(--font-button);
-    font-weight: 700;
+  }
+
+  /* Form Inputs: Minimum 16px font-size to prevent iOS Safari auto-zoom */
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+    font-family: var(--font-body);
+  }
+
+  /* Interactive Elements Touch Target standard */
+  button, 
+  a, 
+  input[type="submit"], 
+  input[type="button"] {
+    touch-action: manipulation;
+  }
+
+  /* Focus ring compliance */
+  :focus-visible {
+    outline: 2px solid #556b2f;
+    outline-offset: 2px;
   }
 }
 
-/* Explicit Automotive Typography Utilities per System Guidelines */
+/* Typography Utility Classes */
 .font-title,
-.font-bebas {
-  font-family: var(--font-title);
-  font-weight: 400;
-  letter-spacing: 0.03em;
-}
-
 .font-heading,
-.font-display {
+.font-display,
+.font-bebas {
   font-family: var(--font-heading);
-  font-weight: 400;
-  letter-spacing: 0.03em;
+  letter-spacing: -0.01em;
 }
 
 .font-subheading {
   font-family: var(--font-subheading);
-  font-weight: 600;
 }
 
 .font-body {
   font-family: var(--font-body);
-  font-weight: 400;
 }
 
 .font-button {
   font-family: var(--font-button);
-  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 .font-price {
   font-family: var(--font-price);
-  font-weight: 400;
-  letter-spacing: 0.03em;
+  letter-spacing: -0.01em;
 }
 
 .font-label {
   font-family: var(--font-label);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
 }
 
 .font-mono-code {
   font-family: var(--font-code);
 }
 
-/* Custom scrollbars in deep green & olive */
+/* Fluid Standard Container */
+.site-container {
+  width: 100%;
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 0.75rem + 1.2vw, 2rem);
+  padding-right: clamp(1rem, 0.75rem + 1.2vw, 2rem);
+}
+
+/* Responsive Safe Area Bottom padding */
+.pb-safe {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom, 1rem));
+}
+
+/* Olive & Cream Scrollbars */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a1b14;
+  background: #f7f4c9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a523e;
+  background: #a9ba86;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #34d399;
+  background: #556b2f;
+}
+
+/* Respect prefers-reduced-motion per STEP 4 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

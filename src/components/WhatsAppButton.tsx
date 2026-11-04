@@ -10,16 +10,16 @@ export const WhatsAppButton: React.FC = () => {
   );
 
   return (
-    <div className="fixed bottom-20 sm:bottom-22 lg:bottom-6 right-3 sm:right-6 z-40 flex items-center gap-3">
-      {/* Tooltip on hover */}
+    <div className="fixed bottom-[calc(4.5rem+env(safe-area-inset-bottom,0.5rem))] lg:bottom-6 right-3 sm:right-6 z-40 flex items-center gap-2 sm:gap-3">
+      {/* Tooltip on hover (desktop only) */}
       {hovered && (
-        <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-[#122c21] border border-[#2d5d45] text-emerald-100 text-xs font-mono-code rounded-xl shadow-xl backdrop-blur-md animate-in fade-in duration-200">
-          <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+        <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 bg-[#fdfcf3] border border-[#dbd49b] text-[#1c2610] text-xs font-mono-code rounded-lg shadow-lg animate-in fade-in duration-150">
+          <ShieldCheck className="w-3.5 h-3.5 text-[#556b2f]" />
           <span>KUMBAKONAM WORKSHOP • {WORKSHOP_DETAILS.phone}</span>
         </div>
       )}
 
-      {/* Button */}
+      {/* Button: 48px min touch target */}
       <a
         href={`https://wa.me/${WORKSHOP_DETAILS.whatsappRaw}?text=${defaultMessage}`}
         target="_blank"
@@ -27,12 +27,10 @@ export const WhatsAppButton: React.FC = () => {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         id="floating-whatsapp-btn"
-        className="relative group p-3.5 sm:p-4 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 rounded-full shadow-2xl shadow-black/80 transition-transform transform hover:scale-105 active:scale-95 flex items-center justify-center cursor-pointer border-2 border-emerald-300/60"
+        className="relative group w-12 h-12 sm:w-14 sm:h-14 bg-[#556b2f] hover:bg-[#3f5023] active:bg-[#222d13] text-[#fffdd0] rounded-full shadow-lg transition-transform transform active:scale-95 flex items-center justify-center cursor-pointer border-2 border-[#fffdd0] min-h-[48px] min-w-[48px]"
         aria-label="Direct WhatsApp Consultation"
       >
-        {/* Subtle Pulse Ring */}
-        <span className="absolute inset-0 rounded-full bg-emerald-400 opacity-40 animate-ping" />
-        <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 relative z-10 fill-current" />
+        <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 relative z-10 fill-current text-[#fffdd0]" />
       </a>
     </div>
   );

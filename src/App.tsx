@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Navbar } from './components/Navbar.tsx';
 import { HeroSection } from './components/HeroSection.tsx';
 import { ServicesSection } from './components/ServicesSection.tsx';
@@ -7,15 +7,21 @@ import { WhatsAppButton } from './components/WhatsAppButton.tsx';
 import { AppBottomNav } from './components/AppBottomNav.tsx';
 import { Footer } from './components/Footer.tsx';
 import { OfflineIndicator } from './components/ErrorPages.tsx';
+import { initSmoothScroll, scrollToTarget } from './services/smoothScroll.ts';
 
 export default function App() {
+  // Mount GSAP smooth scroll across all devices
+  useEffect(() => {
+    const cleanup = initSmoothScroll();
+    return () => cleanup();
+  }, []);
+
   const scrollToServices = () => {
-    const el = document.getElementById('services-section');
-    el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    scrollToTarget('#services-section', -70);
   };
 
   return (
-    <div className="min-h-screen bg-[#0d231a] text-emerald-50 flex flex-col selection:bg-emerald-400 selection:text-slate-950 pb-16 lg:pb-0">
+    <div className="min-h-[100svh] bg-[#fffdd0] text-[#1c2610] flex flex-col selection:bg-[#556b2f] selection:text-[#fffdd0] pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] lg:pb-0">
       <OfflineIndicator />
 
       {/* Navigation Header */}
