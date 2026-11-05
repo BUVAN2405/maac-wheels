@@ -21,7 +21,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-[100svh] bg-[#fffdd0] text-[#1c2610] flex flex-col selection:bg-[#556b2f] selection:text-[#fffdd0] pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] lg:pb-0">
+    <div className="min-h-[100svh] bg-[#f2f0ef] text-[#1c2610] flex flex-col selection:bg-[#556b2f] selection:text-[#f2f0ef] pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] lg:pb-0">
       <OfflineIndicator />
 
       {/* Navigation Header */}

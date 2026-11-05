@@ -58,13 +58,13 @@ export const ContactSection: React.FC = () => {
   const { lat, lng } = WORKSHOP_DETAILS.coordinates; // 10.9829948, 79.3907444
 
   return (
-    <section id="contact-section" className="relative py-10 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 max-w-[1320px] mx-auto bg-[#fffdd0]">
+    <section id="contact-section" className="relative py-10 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 max-w-[1320px] mx-auto bg-[#f2f0ef]">
       {/* Master Container */}
-      <div className="relative rounded-2xl sm:rounded-3xl border border-[#dbd49b] bg-[#fdfcf3] p-4 sm:p-8 lg:p-10 shadow-xs overflow-hidden">
+      <div className="relative rounded-2xl sm:rounded-3xl border border-[#d8d4cf] bg-[#ffffff] p-4 sm:p-8 lg:p-10 shadow-xs overflow-hidden">
         
         {/* Section Header */}
         <div className="max-w-3xl mb-6 sm:mb-8 lg:mb-10 relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f5f1c6] border border-[#dbd49b] text-[#556b2f] font-heading font-bold text-xs uppercase tracking-wider mb-2.5">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e5e2de] border border-[#d8d4cf] text-[#556b2f] font-heading font-bold text-xs uppercase tracking-wider mb-2.5">
             <span className="w-2 h-2 rounded-full bg-[#556b2f]" />
             <span>Kumbakonam Workshop & Fitment Desk</span>
           </div>
@@ -84,7 +84,7 @@ export const ContactSection: React.FC = () => {
           {/* Call button */}
           <a
             href={`tel:${WORKSHOP_DETAILS.phone.replace(/[^0-9+]/g, '')}`}
-            className="flex flex-col items-center justify-center p-2.5 rounded-xl bg-[#f5f1c6] border border-[#dbd49b] text-[#1c2610] active:bg-[#ebe5b0] transition-colors min-h-[48px] text-center"
+            className="flex flex-col items-center justify-center p-2.5 rounded-xl bg-[#e5e2de] border border-[#d8d4cf] text-[#1c2610] active:bg-[#dcd8d3] transition-colors min-h-[48px] text-center"
             aria-label="Call Workshop"
           >
             <PhoneCall className="w-4 h-4 text-[#556b2f] mb-1 shrink-0" />
@@ -96,10 +96,10 @@ export const ContactSection: React.FC = () => {
             href={`https://wa.me/${WORKSHOP_DETAILS.whatsappRaw}?text=${encodeURIComponent('Hello MAAC Wheels & Accessories Kumbakonam, I would like to consult on vehicle fitment.')}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center justify-center p-2.5 rounded-xl bg-[#556b2f] active:bg-[#3f5023] text-[#fffdd0] transition-colors min-h-[48px] text-center shadow-xs"
+            className="flex flex-col items-center justify-center p-2.5 rounded-xl bg-[#556b2f] active:bg-[#3f5023] text-[#f2f0ef] transition-colors min-h-[48px] text-center shadow-xs"
             aria-label="WhatsApp Workshop"
           >
-            <MessageSquare className="w-4 h-4 text-[#fffdd0] mb-1 fill-current shrink-0" />
+            <MessageSquare className="w-4 h-4 text-[#f2f0ef] mb-1 fill-current shrink-0" />
             <span className="font-heading text-xs font-bold uppercase tracking-wider leading-none">WhatsApp</span>
           </a>
 
@@ -108,7 +108,7 @@ export const ContactSection: React.FC = () => {
             href={WORKSHOP_DETAILS.googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center justify-center p-2.5 rounded-xl bg-[#f5f1c6] border border-[#dbd49b] text-[#1c2610] active:bg-[#ebe5b0] transition-colors min-h-[48px] text-center"
+            className="flex flex-col items-center justify-center p-2.5 rounded-xl bg-[#e5e2de] border border-[#d8d4cf] text-[#1c2610] active:bg-[#dcd8d3] transition-colors min-h-[48px] text-center"
             aria-label="Get Directions on Google Maps"
           >
             <Navigation className="w-4 h-4 text-[#556b2f] mb-1 shrink-0" />
@@ -128,9 +128,9 @@ export const ContactSection: React.FC = () => {
           <div className="order-2 lg:order-1 lg:col-span-5 flex flex-col gap-4">
             
             {/* SATELLITE MAP: Mobile height 240px (per 220-280px requirement), Desktop 300px */}
-            <div className="relative rounded-xl overflow-hidden border border-[#dbd49b] bg-[#f7f4c9] shadow-xs flex flex-col">
+            <div className="relative rounded-xl overflow-hidden border border-[#d8d4cf] bg-[#e8e5e0] shadow-xs flex flex-col">
               {/* Map Header */}
-              <div className="px-3.5 py-2.5 bg-[#f5f1c6] border-b border-[#dbd49b] flex items-center justify-between text-xs z-20">
+              <div className="px-3.5 py-2.5 bg-[#e5e2de] border-b border-[#d8d4cf] flex items-center justify-between text-xs z-20">
                 <div className="flex items-center gap-1.5 text-[#556b2f]">
                   <MapPin className="w-4 h-4 text-[#556b2f]" />
                   <span className="font-heading text-xs tracking-wider uppercase font-bold text-[#1c2610]">
@@ -142,7 +142,7 @@ export const ContactSection: React.FC = () => {
                   href={WORKSHOP_DETAILS.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 font-heading text-xs font-bold uppercase tracking-wider text-[#556b2f] hover:text-[#1c2610] px-2.5 py-1 rounded-md bg-[#fdfcf3] hover:bg-[#ebe5b0] border border-[#dbd49b] transition-all min-h-[32px]"
+                  className="inline-flex items-center gap-1 font-heading text-xs font-bold uppercase tracking-wider text-[#556b2f] hover:text-[#1c2610] px-2.5 py-1 rounded-md bg-[#ffffff] hover:bg-[#dcd8d3] border border-[#d8d4cf] transition-all min-h-[32px]"
                 >
                   <span>Open Maps</span>
                   <ExternalLink className="w-3 h-3 text-[#556b2f]" />
@@ -165,16 +165,16 @@ export const ContactSection: React.FC = () => {
                     href={WORKSHOP_DETAILS.googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3.5 py-2 rounded-lg bg-[#556b2f] hover:bg-[#3f5023] text-[#fffdd0] text-xs font-heading font-bold uppercase tracking-wider shadow-md flex items-center gap-1.5 transition-all cursor-pointer min-h-[40px]"
+                    className="px-3.5 py-2 rounded-lg bg-[#556b2f] hover:bg-[#3f5023] text-[#f2f0ef] text-xs font-heading font-bold uppercase tracking-wider shadow-md flex items-center gap-1.5 transition-all cursor-pointer min-h-[40px]"
                   >
-                    <Navigation className="w-3.5 h-3.5 text-[#fffdd0]" />
+                    <Navigation className="w-3.5 h-3.5 text-[#f2f0ef]" />
                     <span>Get Directions</span>
                   </a>
                 </div>
               </div>
 
               {/* Bottom Address Info Strip under Map */}
-              <div className="p-3 bg-[#f5f1c6] border-t border-[#dbd49b] flex items-center justify-between text-xs font-body text-[#405126]">
+              <div className="p-3 bg-[#e5e2de] border-t border-[#d8d4cf] flex items-center justify-between text-xs font-body text-[#405126]">
                 <div className="flex items-center gap-1.5 truncate pr-2 text-xs">
                   <Compass className="w-3.5 h-3.5 text-[#556b2f] shrink-0" />
                   <span className="truncate">NH 36 Bypass, Koranattukkaruppur, Kumbakonam</span>
@@ -187,7 +187,7 @@ export const ContactSection: React.FC = () => {
             </div>
 
             {/* Direct Contact Card (Desktop View) */}
-            <div className="hidden lg:block p-4 sm:p-5 bg-[#f5f1c6] border border-[#dbd49b] rounded-xl shadow-xs">
+            <div className="hidden lg:block p-4 sm:p-5 bg-[#e5e2de] border border-[#d8d4cf] rounded-xl shadow-xs">
               <div className="flex items-center gap-2 text-xs text-[#556b2f] font-heading font-bold uppercase tracking-wider mb-2">
                 <PhoneCall className="w-4 h-4 text-[#556b2f]" />
                 <span>DIRECT FITMENT DESK</span>
@@ -206,9 +206,9 @@ export const ContactSection: React.FC = () => {
                   href={`https://wa.me/${WORKSHOP_DETAILS.whatsappRaw}?text=${encodeURIComponent('Hello MAAC Wheels & Accessories Kumbakonam, I would like to inquire regarding vehicle fitments.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2.5 bg-[#556b2f] hover:bg-[#3f5023] text-[#fffdd0] font-bold rounded-lg text-xs font-heading uppercase tracking-wider flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs min-h-[44px]"
+                  className="px-4 py-2.5 bg-[#556b2f] hover:bg-[#3f5023] text-[#f2f0ef] font-bold rounded-lg text-xs font-heading uppercase tracking-wider flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs min-h-[44px]"
                 >
-                  <MessageSquare className="w-3.5 h-3.5 fill-current text-[#fffdd0]" />
+                  <MessageSquare className="w-3.5 h-3.5 fill-current text-[#f2f0ef]" />
                   <span>WhatsApp</span>
                 </a>
               </div>
@@ -216,7 +216,7 @@ export const ContactSection: React.FC = () => {
 
             {/* Operating Hours Cards (2 columns on tablet & mobile) */}
             <div className="grid grid-cols-2 gap-3">
-              <div className="p-3.5 sm:p-4 bg-[#f5f1c6] border border-[#dbd49b] rounded-xl">
+              <div className="p-3.5 sm:p-4 bg-[#e5e2de] border border-[#d8d4cf] rounded-xl">
                 <div className="flex items-center gap-1.5 text-[#556b2f] text-xs font-heading font-bold uppercase tracking-wider mb-1">
                   <Clock className="w-3.5 h-3.5 text-[#556b2f]" />
                   <span>Mon – Sat</span>
@@ -225,7 +225,7 @@ export const ContactSection: React.FC = () => {
                 <p className="text-xs text-[#66774c] mt-0.5 font-body">Full Bay Active</p>
               </div>
 
-              <div className="p-3.5 sm:p-4 bg-[#f5f1c6] border border-[#dbd49b] rounded-xl">
+              <div className="p-3.5 sm:p-4 bg-[#e5e2de] border border-[#d8d4cf] rounded-xl">
                 <div className="flex items-center gap-1.5 text-[#556b2f] text-xs font-heading font-bold uppercase tracking-wider mb-1">
                   <CalendarX className="w-3.5 h-3.5 text-[#556b2f]" />
                   <span>Sunday</span>
@@ -236,7 +236,7 @@ export const ContactSection: React.FC = () => {
             </div>
 
             {/* Fitment Guarantee Pill */}
-            <div className="flex items-center gap-3 p-3.5 bg-[#f5f1c6] border border-[#dbd49b] rounded-xl text-xs">
+            <div className="flex items-center gap-3 p-3.5 bg-[#e5e2de] border border-[#d8d4cf] rounded-xl text-xs">
               <ShieldCheck className="w-4 h-4 text-[#556b2f] shrink-0" />
               <span className="text-[#222d13] font-body">
                 100% Bolt-On Fitment Guarantee: PCD, hub bore, and offset confirmed prior to installation.
@@ -245,13 +245,13 @@ export const ContactSection: React.FC = () => {
           </div>
 
           {/* DESKTOP RIGHT COLUMN / MOBILE UPPER SECTION: Streamlined Consultation Form */}
-          <div className="order-1 lg:order-2 lg:col-span-7 bg-[#f7f4c9] border border-[#dbd49b] rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-xs relative">
+          <div className="order-1 lg:order-2 lg:col-span-7 bg-[#e8e5e0] border border-[#d8d4cf] rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-xs relative">
             <div className="flex items-center justify-between mb-4 sm:mb-5">
               <div className="flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-wider text-[#556b2f]">
                 <Wrench className="w-4 h-4 text-[#556b2f]" />
                 <span>Submit Vehicle Fitment Inquiry</span>
               </div>
-              <span className="text-xs font-mono-code font-bold text-[#556b2f] px-2.5 py-0.5 rounded-full bg-[#fdfcf3] border border-[#dbd49b]">
+              <span className="text-xs font-mono-code font-bold text-[#556b2f] px-2.5 py-0.5 rounded-full bg-[#ffffff] border border-[#d8d4cf]">
                 Instant Sync
               </span>
             </div>
@@ -270,7 +270,7 @@ export const ContactSection: React.FC = () => {
                     href={whatsAppRedirectUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3.5 py-2 bg-[#556b2f] hover:bg-[#3f5023] text-[#fffdd0] font-heading font-bold rounded-lg text-xs uppercase tracking-wider shrink-0 flex items-center gap-1.5 transition-colors min-h-[44px]"
+                    className="px-3.5 py-2 bg-[#556b2f] hover:bg-[#3f5023] text-[#f2f0ef] font-heading font-bold rounded-lg text-xs uppercase tracking-wider shrink-0 flex items-center gap-1.5 transition-colors min-h-[44px]"
                   >
                     <MessageSquare className="w-3.5 h-3.5 fill-current" />
                     <span>Re-open WhatsApp</span>
@@ -295,7 +295,7 @@ export const ContactSection: React.FC = () => {
                     placeholder="e.g. Anand Kumar"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-[#fdfcf3] border border-[#dbd49b] focus:border-[#556b2f] focus:ring-2 focus:ring-[#556b2f]/20 rounded-lg px-3.5 py-3 text-base text-[#1c2610] placeholder-[#8a9870] focus:outline-none transition-all font-body min-h-[48px]"
+                    className="w-full bg-[#ffffff] border border-[#d8d4cf] focus:border-[#556b2f] focus:ring-2 focus:ring-[#556b2f]/20 rounded-lg px-3.5 py-3 text-base text-[#1c2610] placeholder-[#8a9870] focus:outline-none transition-all font-body min-h-[48px]"
                   />
                 </div>
 
@@ -312,7 +312,7 @@ export const ContactSection: React.FC = () => {
                     placeholder="e.g. +91 98765 43210"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-[#fdfcf3] border border-[#dbd49b] focus:border-[#556b2f] focus:ring-2 focus:ring-[#556b2f]/20 rounded-lg px-3.5 py-3 text-base text-[#1c2610] placeholder-[#8a9870] focus:outline-none transition-all font-body min-h-[48px]"
+                    className="w-full bg-[#ffffff] border border-[#d8d4cf] focus:border-[#556b2f] focus:ring-2 focus:ring-[#556b2f]/20 rounded-lg px-3.5 py-3 text-base text-[#1c2610] placeholder-[#8a9870] focus:outline-none transition-all font-body min-h-[48px]"
                   />
                 </div>
               </div>
@@ -328,7 +328,7 @@ export const ContactSection: React.FC = () => {
                   placeholder="e.g. Mahindra Thar Roxx / Creta 2024 / Innova Hycross"
                   value={formData.vehicle}
                   onChange={(e) => setFormData({ ...formData, vehicle: e.target.value })}
-                  className="w-full bg-[#fdfcf3] border border-[#dbd49b] focus:border-[#556b2f] focus:ring-2 focus:ring-[#556b2f]/20 rounded-lg px-3.5 py-3 text-base text-[#1c2610] placeholder-[#8a9870] focus:outline-none transition-all font-body min-h-[48px]"
+                  className="w-full bg-[#ffffff] border border-[#d8d4cf] focus:border-[#556b2f] focus:ring-2 focus:ring-[#556b2f]/20 rounded-lg px-3.5 py-3 text-base text-[#1c2610] placeholder-[#8a9870] focus:outline-none transition-all font-body min-h-[48px]"
                 />
               </div>
 
@@ -344,21 +344,21 @@ export const ContactSection: React.FC = () => {
                   placeholder="e.g. 18-inch forged alloys, Nappa leather seat covers, Ceramic Coating 10H, or sun films..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full bg-[#fdfcf3] border border-[#dbd49b] focus:border-[#556b2f] focus:ring-2 focus:ring-[#556b2f]/20 rounded-lg p-3.5 text-base text-[#1c2610] placeholder-[#8a9870] focus:outline-none transition-all font-body min-h-[96px]"
+                  className="w-full bg-[#ffffff] border border-[#d8d4cf] focus:border-[#556b2f] focus:ring-2 focus:ring-[#556b2f]/20 rounded-lg p-3.5 text-base text-[#1c2610] placeholder-[#8a9870] focus:outline-none transition-all font-body min-h-[96px]"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="w-full py-3.5 px-6 bg-[#556b2f] hover:bg-[#3f5023] active:bg-[#222d13] text-[#fffdd0] font-heading font-bold text-sm sm:text-base uppercase tracking-wider rounded-lg transition-all shadow-xs flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 min-h-[48px]"
+                className="w-full py-3.5 px-6 bg-[#556b2f] hover:bg-[#3f5023] active:bg-[#222d13] text-[#f2f0ef] font-heading font-bold text-sm sm:text-base uppercase tracking-wider rounded-lg transition-all shadow-xs flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 min-h-[48px]"
               >
-                <MessageSquare className="w-4 h-4 fill-current text-[#fffdd0]" />
+                <MessageSquare className="w-4 h-4 fill-current text-[#f2f0ef]" />
                 <span>{status === 'submitting' ? 'Preparing Consultation...' : 'Send Inquiry via WhatsApp Consultation'}</span>
               </button>
             </form>
 
-            <div className="mt-4 pt-3 border-t border-[#dbd49b] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 text-xs text-[#66774c] font-body">
+            <div className="mt-4 pt-3 border-t border-[#d8d4cf] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 text-xs text-[#66774c] font-body">
               <span>* WhatsApp pre-populates with your full vehicle details for technician review.</span>
               <span className="text-[#556b2f] font-heading font-bold uppercase text-xs flex items-center gap-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#556b2f]" />

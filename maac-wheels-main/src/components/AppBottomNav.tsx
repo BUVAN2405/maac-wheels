@@ -74,7 +74,7 @@ export const AppBottomNav: React.FC = () => {
   return (
     <nav 
       aria-label="Mobile Navigation"
-      className="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-[#fffdd0]/95 backdrop-blur-xl border-t border-[#dbd49b] shadow-[0_-4px_20px_rgba(85,107,47,0.12)] pb-[env(safe-area-inset-bottom,0px)]"
+      className="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-[#f2f0ef]/95 backdrop-blur-xl border-t border-[#d8d4cf] shadow-[0_-4px_20px_rgba(85,107,47,0.12)] pb-[env(safe-area-inset-bottom,0px)]"
     >
       <div className="relative max-w-md mx-auto">
         {/* Animated Sliding Indicator Bar along the top edge across all 3 tabs */}

@@ -27,25 +27,25 @@
 
 @layer base {
   :root {
-    /* Theme Tokens: Primary (#556B2F) & Background (#FFFDD0) */
+    /* Theme Tokens: Primary (#556B2F) & Background (#F2F0EF) */
     --color-primary: #556b2f;
     --color-primary-dark: #3f5023;
     --color-primary-deep: #222d13;
     --color-primary-light: #6e8840;
     --color-primary-subtle: #edf3e0;
 
-    --color-bg-cream: #fffdd0;
-    --color-surface-cream: #f7f4c9;
-    --color-surface-card: #fdfcf3;
+    --color-bg-base: #f2f0ef;
+    --color-surface-subtle: #e8e5e0;
+    --color-surface-card: #ffffff;
     --color-surface-white: #ffffff;
-    --color-border-warm: #dbd49b;
-    --color-border-subtle: #e9e3b8;
+    --color-border-warm: #d8d4cf;
+    --color-border-subtle: #e2dfdc;
     --color-border-olive: #556b2f;
 
     --color-text-main: #1c2610;
     --color-text-secondary: #405126;
     --color-text-muted: #66774c;
-    --color-text-on-primary: #fffdd0;
+    --color-text-on-primary: #f2f0ef;
 
     --accent-red: #b91c1c;
     --accent-amber: #b45309;
@@ -53,7 +53,7 @@
 
   html {
     font-size: 16px;
-    background-color: #fffdd0;
+    background-color: #f2f0ef;
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
   }
@@ -61,7 +61,7 @@
   body {
     font-family: var(--font-body);
     font-weight: 400;
-    background-color: #fffdd0;
+    background-color: #f2f0ef;
     color: #1c2610;
     overflow-x: hidden;
     line-height: 1.6;
@@ -183,7 +183,7 @@
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f7f4c9;
+  background: #e8e5e0;
 }
 ::-webkit-scrollbar-thumb {
   background: #a9ba86;
@@ -204,3 +204,133 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ========================================================
+   PARALLAX SCROLLING COMPONENT STYLES (OSMO / SHADCN UI)
+   ======================================================== */
+.parallax {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #0b1008;
+  color: #fff;
+}
+
+.parallax__header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.parallax__visuals {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.parallax__black-line-overflow {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #000;
+  z-index: 10;
+}
+
+.parallax__layers {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.parallax__layer-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.parallax__layer-title {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.parallax__title {
+  font-size: clamp(2.5rem, 8vw, 7.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.parallax__fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to top, #0b1008 0%, rgba(11, 16, 8, 0.6) 50%, transparent 100%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.parallax__content {
+  position: relative;
+  z-index: 10;
+  min-height: 40vh;
+  padding: 5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #0b1008;
+  color: #e5e2de;
+}
+
+.osmo-icon-svg {
+  width: 64px;
+  height: 64px;
+  color: #556b2f;
+  margin-bottom: 1.5rem;
+}
+
+.osmo-credits {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background-color: #0b1008;
+  border-top: 1px solid rgba(85, 107, 47, 0.2);
+  color: #a3a3a3;
+  font-size: 0.875rem;
+}
+
+.osmo-credits__p-a {
+  color: #e5e2de;
+  text-decoration: underline;
+  transition: color 0.15s ease;
+}
+
+.osmo-credits__p-a:hover {
+  color: #ffffff;
+}
+
