@@ -1,0 +1,5 @@
+{
+  "outputDirectory": "maac-wheels-main/dist",
+  "installCommand": "npm --prefix maac-wheels-main install",
+  "buildCommand": "npm --prefix maac-wheels-main run build"
+}
