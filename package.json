@@ -7,9 +7,6 @@
     "build": "npm --prefix maac-wheels-main run build",
     "start": "npm --prefix maac-wheels-main start",
     "preview": "npm --prefix maac-wheels-main run preview",
-    "lint": "npm --prefix maac-wheels-main run lint",
-    "dev:forge": "npm --prefix forge-automotive run dev",
-    "build:forge": "npm --prefix forge-automotive run build",
-    "preview:forge": "npm --prefix forge-automotive run preview"
+    "lint": "npm --prefix maac-wheels-main run lint"
   }
 }
