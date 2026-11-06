@@ -67,11 +67,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-10 lg:mb-12 border-b border-[#d8d4cf] pb-4 sm:pb-6 relative z-10 gap-3 sm:gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
-          
+
 
 
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label text-[10px] sm:text-xs bg-[#e5e2de] border border-[#d8d4cf] text-[#556b2f] font-semibold">
-              <Wrench className="w-3 h-3 text-[#556b2f]" />
+
               9 Signature Disciplines
             </span>
           </div>

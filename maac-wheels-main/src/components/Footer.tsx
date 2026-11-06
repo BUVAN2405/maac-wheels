@@ -173,7 +173,8 @@ export const Footer: React.FC = () => {
             <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#2c3a19] border border-[#556b2f]">
               <span className="text-[#c5cbbd]/80">Powered by</span>
               <span className="text-[#f2f0ef] font-bold tracking-wider">
-                VelzenLabs
+                Velzen
+
               </span>
             </div>
 
