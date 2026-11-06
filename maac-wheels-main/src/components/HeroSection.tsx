@@ -49,10 +49,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreServices }) =
           {/* CTA Button */}
           <button
             onClick={handleCtaClick}
-            className="inline-flex items-center justify-center gap-0.5 px-2 py-0.5 rounded-full bg-[#1c2610] hover:bg-[#556b2f] text-[#f2f0ef] font-heading font-semibold text-[7px] tracking-wider uppercase shadow-2xs transition-all duration-200 cursor-pointer min-h-[16px] leading-none"
+            className="inline-flex items-center justify-center gap-0.5 px-1.5 py-0.5 rounded-full bg-[#1c2610] hover:bg-[#556b2f] text-[#f2f0ef] font-heading font-medium text-[6px] tracking-wider uppercase shadow-2xs transition-all duration-200 cursor-pointer min-h-[14px] leading-none"
           >
             <span>Explore Services</span>
-            <ArrowRight className="w-2 h-2" />
+            <ArrowRight className="w-1.5 h-1.5" />
           </button>
         </div>
       </div>
@@ -83,7 +83,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreServices }) =
         >
 
           {/* Headline */}
-          <h1 className="font-heading text-md md:text-x lg:text-xl uppercase tracking-tight leading-tight text-[#1c2610] max-w-2xl mb-3">
+          <h1 className="font-heading text-md md:text-x lg:text-2xl uppercase tracking-tight leading-tight text-[#1c2610] max-w-2xl mb-3">
             We Care Your Car.
           </h1>
 
@@ -101,10 +101,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreServices }) =
           {/* CTA Button */}
           <button
             onClick={handleCtaClick}
-            className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-[#556b2f] hover:bg-[#556b3f] text-[#f2f0ef] font-heading font-bold text-sm tracking-wider uppercase shadow-md transition-all duration-200 cursor-pointer min-h-[44px]"
+            className="inline-flex items-center justify-center gap-1.5 px-5 py-2 rounded-full bg-[#556b2f] hover:bg-[#556b3f] text-[#f2f0ef] font-heading font-semibold text-xs tracking-wider uppercase shadow-sm transition-all duration-200 cursor-pointer min-h-[34px]"
           >
             <span>Explore Services</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
 
