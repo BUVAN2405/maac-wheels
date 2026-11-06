@@ -168,6 +168,27 @@ export const SERVICES: ServiceItem[] = [
       'Comprehensive warranty & professional fitting'
     ],
     whatsappMessage: 'Hi MAAC team, I am interested in upgrading to an OE Genuine Steering Wheel for my car.'
+  },
+  {
+    id: 'car-body-kit',
+    title: 'Car Body Kits',
+    subtitle: 'Aerodynamic Splitters, Diffusers & Widebody Styling',
+    description: 'Transform your vehicle aesthetics and aerodynamics with precision-engineered body styling kits. Featuring high-grade ABS & lightweight autoclave carbon fiber front lips, side skirts, rear diffusers, rear spoilers, and wide-stance fender flares.',
+    image: '/images/services/service_body_kit.jpg',
+    badge: 'AERO STYLING',
+    highlights: [
+      'Autoclave Carbon & High-Grade ABS',
+      'Aggressive Track-Inspired Aero Stance',
+      'Laser-Scanned OEM Precision Fitment',
+      'Front Splitters, Skirts & Rear Diffusers'
+    ],
+    features: [
+      'Enhanced aerodynamic downforce & stability',
+      'Direct bolt-on fitment without chassis cut',
+      'High-gloss UV clear-coat protection',
+      'Custom paint-matching available'
+    ],
+    whatsappMessage: 'Hi MAAC team, I want to inquire about custom Car Body Kits and aero styling options for my vehicle.'
   }
 ];
 

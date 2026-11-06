@@ -12,6 +12,7 @@ import {
   Palette,
   Sparkles,
   Compass,
+  Gauge,
   X
 } from 'lucide-react';
 import { ServiceItem } from '../types.ts';
@@ -42,6 +43,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
         return <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#f2f0ef]" />;
       case 'oe-steering-wheels':
         return <Compass className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#f2f0ef]" />;
+      case 'car-body-kit':
+        return <Gauge className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#f2f0ef]" />;
       default:
         return <Wrench className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#f2f0ef]" />;
     }
@@ -69,7 +72,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
 
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label text-[10px] sm:text-xs bg-[#e5e2de] border border-[#d8d4cf] text-[#556b2f] font-semibold">
               <Wrench className="w-3 h-3 text-[#556b2f]" />
-              8 Signature Disciplines
+              9 Signature Disciplines
             </span>
           </div>
 

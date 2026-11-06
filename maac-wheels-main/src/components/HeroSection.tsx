@@ -38,7 +38,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreServices }) =
 
           {/* Headline */}
           <h1 className="font-heading text-xs uppercase tracking-tight leading-none text-[#1c2610] mb-0.5 font-extrabold">
-            YOUR CAR. OUR PASSION.
+            We Care Your Car.
           </h1>
 
           {/* Paragraph */}
@@ -84,14 +84,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreServices }) =
 
           {/* Headline */}
           <h1 className="font-heading text-md md:text-x lg:text-xl uppercase tracking-tight leading-tight text-[#1c2610] max-w-2xl mb-3">
-            YOUR CAR. OUR PASSION.
+            We Care Your Car.
           </h1>
 
           {/* Badge */}
 
-          <p className="font-heading text-sm tracking-widest uppercase text-[#556b2f] font-bold">
-            We Care Your Car.
-          </p>
+          {/* <p className="font-heading text-sm tracking-widest uppercase text-[#556b2f] font-bold">
+            YOUR CAR. OUR PASSION.
+          </p> */}
 
           {/* Paragraph */}
           <p className="font-body text-xs lg:text-sm text-[#2e3d1f] max-w-xl mx-auto leading-relaxed mb-5">
