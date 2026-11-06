@@ -189,6 +189,27 @@ export const SERVICES: ServiceItem[] = [
       'Custom paint-matching available'
     ],
     whatsappMessage: 'Hi MAAC team, I want to inquire about custom Car Body Kits and aero styling options for my vehicle.'
+  },
+  {
+    id: 'premium-headlights-foglamps',
+    title: 'Headlights & Fog Lamp Projectors',
+    subtitle: 'High-Lux Bi-LED Laser Projectors & Dynamic DRLs',
+    description: 'Transform night driving safety and road presence with high-lumen Bi-LED projector retrofits and waterproof dual-beam fog lamp projectors. Delivers razor-sharp cut-off beam patterns, zero glare for oncoming drivers, penetrating 3000K/6000K illumination, and sweeping sequential DRLs.',
+    image: '/images/services/service_headlights_foglamps.jpg',
+    badge: 'ADVANCED OPTICS',
+    highlights: [
+      'Ultra-Bright High-Lux Bi-LED Projectors',
+      'Sharp Laser-Engineered Cut-Off Line',
+      'Waterproof IP68 Dual-Beam Fog Projectors',
+      'Sequential Dynamic LED DRL Integration'
+    ],
+    features: [
+      'Zero wire-cutting with OEM plug-and-play sockets',
+      'All-weather penetration (Yellow 3000K / Pure White 6000K)',
+      'High-efficiency heat sink and active cooling fans',
+      'Moisture-sealed optical glass lenses'
+    ],
+    whatsappMessage: 'Hi MAAC team, I would like to inquire about Premium Headlights & Fog Lamp Projector upgrades for my car.'
   }
 ];
 
