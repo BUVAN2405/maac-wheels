@@ -81,18 +81,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreServices }) =
         <div
           className="absolute inset-x-0 top-0 flex flex-col items-center justify-center text-center px-6 lg:px-8 h-2/5"
         >
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/60 backdrop-blur-sm border border-[#d8d4cf] shadow-xs mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#556b2f] shrink-0" />
-            <p className="font-heading text-sm tracking-widest uppercase text-[#556b2f] font-bold">
-              We Care For Your Car.
-            </p>
-          </div>
 
           {/* Headline */}
-          <h1 className="font-heading text-xl md:text-2xl lg:text-3xl uppercase tracking-tight leading-tight text-[#1c2610] max-w-2xl mb-3">
+          <h1 className="font-heading text-md md:text-x lg:text-xl uppercase tracking-tight leading-tight text-[#1c2610] max-w-2xl mb-3">
             YOUR CAR. OUR PASSION.
           </h1>
+
+          {/* Badge */}
+
+          <p className="font-heading text-sm tracking-widest uppercase text-[#556b2f] font-bold">
+            We Care Your Car.
+          </p>
 
           {/* Paragraph */}
           <p className="font-body text-xs lg:text-sm text-[#2e3d1f] max-w-xl mx-auto leading-relaxed mb-5">
@@ -102,7 +101,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreServices }) =
           {/* CTA Button */}
           <button
             onClick={handleCtaClick}
-            className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-[#1c2610] hover:bg-[#556b2f] text-[#f2f0ef] font-heading font-bold text-sm tracking-wider uppercase shadow-md transition-all duration-200 cursor-pointer min-h-[44px]"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-[#556b2f] hover:bg-[#556b3f] text-[#f2f0ef] font-heading font-bold text-sm tracking-wider uppercase shadow-md transition-all duration-200 cursor-pointer min-h-[44px]"
           >
             <span>Explore Services</span>
             <ArrowRight className="w-4 h-4" />

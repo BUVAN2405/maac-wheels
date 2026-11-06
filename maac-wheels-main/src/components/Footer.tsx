@@ -55,7 +55,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="text-xs sm:text-sm text-[#c5cbbd]/85 font-body leading-relaxed max-w-md">
-              Your premier destination for high-performance automotive wheels, custom fitments,
+              Your premium destination for high-performance automotive wheels, custom fitments,
               laser optics, cockpit electronics, and aerodynamic styling in Kumbakonam, Tamil Nadu.
             </p>
 

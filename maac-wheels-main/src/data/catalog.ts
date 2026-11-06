@@ -126,6 +126,48 @@ export const SERVICES: ServiceItem[] = [
       'Durable matte, gloss, & dual-tone finishes'
     ],
     whatsappMessage: 'Hi MAAC team, I would like to check Alloy Wheels fitments and design options for my car.'
+  },
+  {
+    id: 'paint-protection-film',
+    title: 'Paint Protection Film (PPF)',
+    subtitle: 'Self-Healing TPU Film for Ultimate Showroom Finish',
+    description: 'Ultimate invisible armor for your vehicle paintwork. Premium optical-clarity thermoplastic polyurethane (TPU) film with instant heat-activated self-healing properties, extreme scratch & swirl resistance, hydrophobic stain repellence, and long-lasting gloss.',
+    image: '/images/services/service_ppf.jpg',
+    badge: 'ULTIMATE PAINT ARMOR',
+    highlights: [
+      'Heat-Activated Self-Healing TPU',
+      'High Gloss & Mirror Optical Clarity',
+      'Extreme Scratch & Swirl Resistance',
+      'Hydrophobic Water & Stain Repellent'
+    ],
+    features: [
+      'Protects original factory clear-coat',
+      'UV & heat degradation protection',
+      'Chemical, bird-dropping & acid rain defense',
+      'Certified computer-cut edge-wrapped installation'
+    ],
+    whatsappMessage: 'Hi MAAC team, I want to inquire about Paint Protection Film (PPF) packages for my vehicle.'
+  },
+  {
+    id: 'oe-steering-wheels',
+    title: 'OE Genuine Steering Wheels',
+    subtitle: 'Factory-Fit Ergonomic & Multi-Function Upgrades',
+    description: 'Upgrade your vehicle with original equipment (OE) genuine steering wheels. Featuring factory-accurate model-specific fitment, cruise control integration, steering-mounted audio and phone controls, and luxurious perforated leather grips.',
+    image: '/images/services/service_steering_wheels.jpg',
+    badge: 'OE FACTORY UPGRADE',
+    highlights: [
+      '100% Genuine OE Quality Products',
+      'Model-Specific Factory Fitment',
+      'Cruise Control & Multi-Function Support',
+      'Premium Perforated Leather Feel'
+    ],
+    features: [
+      'Plug-and-play zero wire-cutting installation',
+      'Integrated audio, call, and cruise buttons',
+      'Enhanced grip ergonomics and tactile feel',
+      'Comprehensive warranty & professional fitting'
+    ],
+    whatsappMessage: 'Hi MAAC team, I am interested in upgrading to an OE Genuine Steering Wheel for my car.'
   }
 ];
 
