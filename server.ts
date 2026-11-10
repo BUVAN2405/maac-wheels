@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import path from 'path';
 import fs from 'fs';
 import { createServer as createViteServer } from 'vite';
+import { SERVICES } from './src/data/catalog.ts';
 
 async function startServer() {
   const app = express();
@@ -47,17 +48,47 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    // Production static file serving with safe path resolution & dotfiles protection
-    const distPath = path.resolve(process.cwd(), 'dist');
-    if (fs.existsSync(distPath)) {
-      app.use(express.static(distPath, { dotfiles: 'ignore', index: false }));
-      app.get('*', (_req: Request, res: Response) => {
+    // Production static file serving for prerendered routes + real HTTP 404 handling
+    const localDist = path.resolve(process.cwd(), 'dist');
+    const nestedDist = path.resolve(process.cwd(), 'maac-wheels-main', 'dist');
+    const distPath = fs.existsSync(localDist) ? localDist : nestedDist;
+    const validServiceIds = new Set(SERVICES.map((s) => s.id));
+
+    const sendPrerenderedFile = (res: Response, filePath: string, statusCode: number) => {
+      if (fs.existsSync(filePath)) {
+        res.status(statusCode).sendFile(filePath);
+      } else {
         const indexPath = path.join(distPath, 'index.html');
         if (fs.existsSync(indexPath)) {
-          res.sendFile(indexPath);
+          res.status(statusCode).sendFile(indexPath);
         } else {
           res.status(404).send('Application build not found.');
         }
+      }
+    };
+
+    if (fs.existsSync(distPath)) {
+      app.use(express.static(distPath, { dotfiles: 'ignore', index: false }));
+
+      app.get('/', (_req: Request, res: Response) => {
+        sendPrerenderedFile(res, path.join(distPath, 'index.html'), 200);
+      });
+
+      app.get('/services/:serviceId', (req: Request, res: Response) => {
+        const serviceId = String(req.params.serviceId || '');
+        if (validServiceIds.has(serviceId)) {
+          sendPrerenderedFile(
+            res,
+            path.join(distPath, 'services', serviceId, 'index.html'),
+            200
+          );
+        } else {
+          sendPrerenderedFile(res, path.join(distPath, '404.html'), 404);
+        }
+      });
+
+      app.get('*', (_req: Request, res: Response) => {
+        sendPrerenderedFile(res, path.join(distPath, '404.html'), 404);
       });
     }
   }

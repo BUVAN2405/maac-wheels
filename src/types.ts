@@ -1,5 +1,16 @@
 export type MainCategoryType = 'all' | 'accessories' | 'interior' | 'exterior' | 'car-care';
 
+export interface ServiceFAQ {
+  question: string;
+  answer: string;
+}
+
+export interface ServiceProcessStep {
+  step: string;
+  title: string;
+  description: string;
+}
+
 export interface ServiceItem {
   id: string;
   title: string;
@@ -11,6 +22,19 @@ export interface ServiceItem {
   features: string[];
   iconName?: string;
   whatsappMessage: string;
+  // Extended SEO & Dynamic Detail Page fields
+  seoTitle?: string;
+  seoDescription?: string;
+  seoKeywords?: string[];
+  fullOverview?: string;
+  longDescription?: string[];
+  specifications?: Record<string, string>;
+  processSteps?: ServiceProcessStep[];
+  faqs?: ServiceFAQ[];
+  warranty?: string;
+  turnaroundTime?: string;
+  suitableFor?: string;
+  primaryKeyword?: string;
 }
 
 export interface Category {

@@ -27,7 +27,7 @@ export const WhatsAppButton: React.FC = () => {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         id="floating-whatsapp-btn"
-        className="relative group w-12 h-12 sm:w-14 sm:h-14 bg-[#556b2f] hover:bg-[#3f5023] active:bg-[#222d13] text-[#f2f0ef] rounded-full shadow-lg transition-transform transform active:scale-95 flex items-center justify-center cursor-pointer border-2 border-[#f2f0ef] min-h-[48px] min-w-[48px]"
+        className="relative group w-12 h-12 sm:w-14 sm:h-14 bg-[#556b2f] hover:bg-[#3f5023] active:bg-[#222d13] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#556b2f] text-[#f2f0ef] rounded-full shadow-lg transition-transform transform active:scale-95 flex items-center justify-center cursor-pointer border-2 border-[#f2f0ef] min-h-[48px] min-w-[48px]"
         aria-label="Direct WhatsApp Consultation"
       >
         <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 relative z-10 fill-current text-[#f2f0ef]" />

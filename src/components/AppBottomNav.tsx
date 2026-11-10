@@ -8,7 +8,11 @@ import { scrollToTarget } from '../services/smoothScroll.ts';
 
 type NavTab = 'home' | 'services' | 'workshop';
 
-export const AppBottomNav: React.FC = () => {
+interface AppBottomNavProps {
+  onNavigate?: (path: string) => void;
+}
+
+export const AppBottomNav: React.FC<AppBottomNavProps> = ({ onNavigate }) => {
   const [activeItem, setActiveItem] = useState<NavTab>('home');
   const isUserNavigating = useRef(false);
   const navLockTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -58,10 +62,20 @@ export const AppBottomNav: React.FC = () => {
       isUserNavigating.current = false;
     }, 1100);
 
+    const isHomePage = window.location.pathname === '/';
+
     if (item === 'home') {
-      scrollToTarget(document.body, 0);
+      if (!isHomePage && onNavigate) {
+        onNavigate('/');
+      } else {
+        scrollToTarget(document.body, 0);
+      }
     } else {
-      scrollToTarget(`#${id}`, -70);
+      if (!isHomePage && onNavigate) {
+        onNavigate(`/#${id}`);
+      } else {
+        scrollToTarget(`#${id}`, -70);
+      }
     }
   };
 
@@ -74,7 +88,7 @@ export const AppBottomNav: React.FC = () => {
   return (
     <nav 
       aria-label="Mobile Navigation"
-      className="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-[#fffdd0]/95 backdrop-blur-xl border-t border-[#dbd49b] shadow-[0_-4px_20px_rgba(85,107,47,0.12)] pb-[env(safe-area-inset-bottom,0px)]"
+      className="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-[#f2f0ef]/95 backdrop-blur-xl border-t border-[#d8d4cf] shadow-[0_-4px_20px_rgba(85,107,47,0.12)] pb-[env(safe-area-inset-bottom,0px)]"
     >
       <div className="relative max-w-md mx-auto">
         {/* Animated Sliding Indicator Bar along the top edge across all 3 tabs */}
@@ -89,8 +103,9 @@ export const AppBottomNav: React.FC = () => {
           
           {/* 1. Home */}
           <button
+            type="button"
             onClick={() => scrollTo('root', 'home')}
-            className="flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition-transform active:scale-90 duration-150 cursor-pointer min-h-[48px]"
+            className="flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition-transform active:scale-90 duration-150 cursor-pointer min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#556b2f]"
           >
             <div className={`p-1 rounded-lg transition-all duration-300 ${
               activeItem === 'home' ? 'bg-[#556b2f]/15 text-[#556b2f] -translate-y-0.5 scale-105' : 'text-[#66774c]'
@@ -106,8 +121,9 @@ export const AppBottomNav: React.FC = () => {
 
           {/* 2. Services */}
           <button
+            type="button"
             onClick={() => scrollTo('services-section', 'services')}
-            className="flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition-transform active:scale-90 duration-150 cursor-pointer min-h-[48px]"
+            className="flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition-transform active:scale-90 duration-150 cursor-pointer min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#556b2f]"
           >
             <div className={`p-1 rounded-lg transition-all duration-300 ${
               activeItem === 'services' ? 'bg-[#556b2f]/15 text-[#556b2f] -translate-y-0.5 scale-105' : 'text-[#66774c]'
@@ -123,8 +139,9 @@ export const AppBottomNav: React.FC = () => {
 
           {/* 3. Kumbakonam Workshop Desk */}
           <button
+            type="button"
             onClick={() => scrollTo('contact-section', 'workshop')}
-            className="flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition-transform active:scale-90 duration-150 cursor-pointer min-h-[48px]"
+            className="flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition-transform active:scale-90 duration-150 cursor-pointer min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#556b2f]"
           >
             <div className={`p-1 rounded-lg transition-all duration-300 ${
               activeItem === 'workshop' ? 'bg-[#556b2f]/15 text-[#556b2f] -translate-y-0.5 scale-105' : 'text-[#66774c]'

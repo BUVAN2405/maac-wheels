@@ -10,11 +10,14 @@ import {
   MessageSquare, 
   ExternalLink, 
   Navigation, 
-  Compass 
+  Compass,
+  ChevronDown
 } from 'lucide-react';
 import { WORKSHOP_DETAILS } from '../data/catalog.ts';
+import { HOMEPAGE_FAQS, NEARBY_TOWNS } from '../services/seo.ts';
 
 export const ContactSection: React.FC = () => {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -365,6 +368,72 @@ export const ContactSection: React.FC = () => {
                 Verified Workshop
               </span>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ========================================================
+          LOCAL SERVICE AREAS & CUSTOMER FAQs (Hairline Layout)
+         ======================================================== */}
+      <div className="mt-12 sm:mt-16 pt-10 sm:pt-12 border-t border-[#d8d4cf] grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        {/* Left: Service Areas & Tamil Reference */}
+        <div className="lg:col-span-5 space-y-4">
+          <span className="font-label text-xs font-bold text-[#556b2f] uppercase tracking-wider block">
+            Areas Served Around 612501
+          </span>
+          <h3 className="font-heading text-2xl sm:text-3xl text-[#1c2610] uppercase tracking-tight">
+            Serving Kumbakonam &amp; Nearby Towns
+          </h3>
+          <p className="font-body text-xs sm:text-sm text-[#405126] leading-relaxed">
+            Car owners from Koranattukkaruppur, Darasuram, Swamimalai, Thiruvidaimarudur, Papanasam, Thanjavur, and Mayiladuthurai visit our NH 36 Bypass bay for alloy wheels, custom seat covers, car audio, and detailing.
+          </p>
+          <div className="flex flex-wrap gap-2 pt-1">
+            {NEARBY_TOWNS.map((town) => (
+              <span
+                key={town}
+                className="px-2.5 py-1 rounded bg-[#e8e5e0] border border-[#d8d4cf] text-xs font-heading font-bold uppercase text-[#1c2610]"
+              >
+                {town}
+              </span>
+            ))}
+          </div>
+          <p className="font-body text-xs text-[#405126] pt-3 border-t border-[#d8d4cf]">
+            <strong className="text-[#1c2610]">கார் ஆக்சசரீஸ் கும்பகோணம்:</strong>{' '}
+            கொரநாட்டுக்கருப்பூர் பைபாஸ் (612501), கும்பகோணம் அருகே சீட் கவர், செராமிக் கோட்டிங், கார் ஆடியோ மற்றும் அலாய் வீல் பணி.
+          </p>
+        </div>
+
+        {/* Right: Hairline FAQ Accordion */}
+        <div className="lg:col-span-7">
+          <h3 className="font-heading text-2xl sm:text-3xl text-[#1c2610] uppercase tracking-tight mb-4">
+            Common Questions
+          </h3>
+          <div className="divide-y divide-[#d8d4cf] border-t border-b border-[#d8d4cf]">
+            {HOMEPAGE_FAQS.map((faq, idx) => {
+              const isOpen = openFaqIndex === idx;
+              return (
+                <div key={idx}>
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
+                    aria-expanded={isOpen}
+                    className="w-full text-left py-3.5 sm:py-4 flex items-center justify-between gap-4 font-heading text-xs sm:text-base uppercase font-bold text-[#1c2610] hover:text-[#556b2f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#556b2f] transition-colors cursor-pointer"
+                  >
+                    <span>{faq.question}</span>
+                    <ChevronDown
+                      className={`w-4 h-4 text-[#556b2f] shrink-0 transition-transform duration-200 ${
+                        isOpen ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                  {isOpen && (
+                    <div className="pb-4 font-body text-xs sm:text-sm text-[#405126] leading-relaxed">
+                      {faq.answer}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
