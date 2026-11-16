@@ -24,7 +24,6 @@ import {
 import { SERVICES, getServiceWhatsAppUrl, WORKSHOP_DETAILS } from '../data/catalog.ts';
 import {
   setPageSEO,
-  NEARBY_TOWNS,
   getLocalBusinessSchema,
   getServiceSchema,
   getBreadcrumbSchema,
@@ -423,40 +422,29 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
       )}
 
       {/* ========================================================
-          5. LOCAL SERVICE AREAS & WORKSHOP DESK (NAP)
+          5. WORKSHOP CONSULTATION & BOOKING DESK (NAP)
          ======================================================== */}
       <section className="py-12 sm:py-20 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 border-b border-[#d8d4cf]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Areas Served + Tamil Keyword Context */}
-          <div className="lg:col-span-7 space-y-5">
+          {/* Workshop Installation Overview */}
+          <div className="lg:col-span-7 space-y-4">
             <div>
               <span className="font-label text-xs font-bold text-[#556b2f] uppercase tracking-wider">
-                Local Service Coverage
+                Workshop Consultation
               </span>
               <h2 className="font-heading text-2xl sm:text-3xl text-[#1c2610] uppercase tracking-tight mt-1">
-                Serving Kumbakonam &amp; Nearby Delta Towns
+                Professional Fitment &amp; Installation
               </h2>
             </div>
 
             <p className="font-body text-sm sm:text-base text-[#405126] leading-relaxed">
-              Car owners across Kumbakonam and surrounding towns visit our Koranattukkaruppur (612501) workshop on NH 36 Bypass for reliable parts and fitting without traveling to Chennai or Trichy.
+              Every {service.title.toLowerCase()} service is completed in-house by trained automotive specialists at our NH 36 Bypass facility in Koranattukkaruppur, Kumbakonam. We verify compatibility, wiring integrity, and surface finish before delivering your vehicle.
             </p>
 
-            <div className="flex flex-wrap gap-2">
-              {NEARBY_TOWNS.map((town) => (
-                <span
-                  key={town}
-                  className="px-3 py-1.5 rounded-lg bg-[#e8e5e0] border border-[#d8d4cf] text-xs font-heading font-bold uppercase text-[#1c2610]"
-                >
-                  {town}
-                </span>
-              ))}
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-[#1c2610] font-body pt-1">
+              <ShieldCheck className="w-4 h-4 text-[#556b2f] shrink-0" />
+              <span>100% Fitment Verification &amp; OEM Warranty Compliant Installation</span>
             </div>
-
-            <p className="font-body text-xs sm:text-sm text-[#405126] pt-2 border-t border-[#d8d4cf]">
-              <strong className="text-[#1c2610]">கும்பகோணம் கார் ஆக்சசரீஸ் (Car Accessories Kumbakonam):</strong>{' '}
-              கும்பகோணம் பைபாஸ் (கொரநாட்டுக்கருப்பூர், 612501) அருகே அனைத்து கார்களுக்கும் {service.title} மற்றும் கார் ஆக்சசரீஸ் பணி செய்யப்படுகிறது.
-            </p>
           </div>
 
           {/* Identical NAP Workshop Booking Card */}
