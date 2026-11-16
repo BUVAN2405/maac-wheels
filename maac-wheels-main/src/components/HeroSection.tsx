@@ -45,7 +45,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreServices }) =
       {/* Single H1 & Text Overlay (Responsive for both mobile and desktop) */}
       <div className="absolute inset-x-0 top-0 h-[45%] sm:h-2/5 flex flex-col items-center justify-start sm:justify-center text-center px-2 pt-3.5 sm:px-6 lg:px-8 sm:pt-0 pointer-events-auto">
         <h1 className="font-heading text-xs sm:text-xl md:text-2xl lg:text-3xl uppercase tracking-tight leading-none sm:leading-tight text-[#1c2610] max-w-2xl mb-0.5 sm:mb-2 font-extrabold">
-          Car Accessories Shop in Kumbakonam
+          WE CARE YOUR CAR
+          
         </h1>
 
         <p className="font-body text-[7.5px] sm:text-xs lg:text-sm leading-tight sm:leading-relaxed text-[#2e3d1f] max-w-[245px] sm:max-w-xl mx-auto mb-1 sm:mb-5">
