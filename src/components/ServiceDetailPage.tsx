@@ -189,7 +189,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
                 Home
               </a>
             </li>
-            <ChevronRight className="w-3.5 h-3.5 text-[#66774c] shrink-0" />
+            <ChevronRight className="w-3.5 h-3.5 text-[#424d31] shrink-0" />
             <li>
               <a
                 href="/#services-section"
@@ -202,7 +202,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
                 Services
               </a>
             </li>
-            <ChevronRight className="w-3.5 h-3.5 text-[#66774c] shrink-0" />
+            <ChevronRight className="w-3.5 h-3.5 text-[#424d31] shrink-0" />
             <li className="text-[#556b2f] font-semibold truncate" aria-current="page">
               {service.title} in Kumbakonam
             </li>
@@ -599,7 +599,8 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
                   e.preventDefault();
                   onNavigate(`/services/${s.id}`);
                 }}
-                title={`${s.title} in Kumbakonam`}
+                title={`${s.badge} - ${s.title} in Kumbakonam`}
+                aria-label={`${s.badge} - ${s.title} in Kumbakonam - View specs`}
                 className="group bg-white rounded-xl border border-[#d8d4cf] hover:border-[#556b2f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#556b2f] overflow-hidden flex flex-col justify-between transition-all hover:shadow-md cursor-pointer no-underline"
               >
                 <div className="relative aspect-[16/10] bg-[#1c2610] overflow-hidden">

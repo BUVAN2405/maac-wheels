@@ -105,8 +105,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
               href={serviceUrl}
               onClick={(e) => handleServiceClick(service, e)}
               className="group relative bg-[#ffffff] rounded-xl border border-[#d8d4cf] hover:border-[#556b2f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#556b2f] overflow-hidden transition-all duration-200 flex flex-col justify-between shadow-xs hover:shadow-md cursor-pointer h-full no-underline text-inherit"
-              title={`${service.title} in Kumbakonam - View full specifications`}
-              aria-label={`${service.title} in Kumbakonam - View full details`}
+              title={`${service.badge} - ${service.title} in Kumbakonam - View full specifications`}
+              aria-label={`${service.badge} - ${service.title} in Kumbakonam - View full details`}
             >
               {/* Top Image Showcase */}
               <div className="relative w-full aspect-[16/10] bg-[#1c2610] overflow-hidden border-b border-[#d8d4cf] shrink-0">

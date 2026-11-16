@@ -88,6 +88,9 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({
                 <img
                   src={cat.image}
                   alt={cat.name}
+                  width={480}
+                  height={300}
+                  decoding="async"
                   className="w-full h-full object-cover p-0 transition-transform duration-300 ease-out group-hover:scale-105"
                   loading="lazy"
                 />
@@ -145,7 +148,7 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({
                     <span>Explore</span>
                     <ArrowRight className="w-3 h-3 transform transition-transform group-hover:translate-x-1" />
                   </span>
-                  <span className="text-[10px] font-body text-[#66774c] hidden sm:inline">
+                  <span className="text-[10px] font-body text-[#424d31] hidden sm:inline">
                     Kumbakonam Bay
                   </span>
                 </div>

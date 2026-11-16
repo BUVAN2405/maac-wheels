@@ -108,12 +108,12 @@ export const AppBottomNav: React.FC<AppBottomNavProps> = ({ onNavigate }) => {
             className="flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition-transform active:scale-90 duration-150 cursor-pointer min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#556b2f]"
           >
             <div className={`p-1 rounded-lg transition-all duration-300 ${
-              activeItem === 'home' ? 'bg-[#556b2f]/15 text-[#556b2f] -translate-y-0.5 scale-105' : 'text-[#66774c]'
+              activeItem === 'home' ? 'bg-[#556b2f]/15 text-[#556b2f] -translate-y-0.5 scale-105' : 'text-[#424d31]'
             }`}>
               <Home className="w-5 h-5 transition-transform duration-200" />
             </div>
             <span className={`text-[11px] font-heading uppercase tracking-wider transition-all duration-200 ${
-              activeItem === 'home' ? 'text-[#556b2f] font-bold' : 'text-[#66774c] font-medium'
+              activeItem === 'home' ? 'text-[#556b2f] font-bold' : 'text-[#424d31] font-medium'
             }`}>
               Home
             </span>
@@ -126,12 +126,12 @@ export const AppBottomNav: React.FC<AppBottomNavProps> = ({ onNavigate }) => {
             className="flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition-transform active:scale-90 duration-150 cursor-pointer min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#556b2f]"
           >
             <div className={`p-1 rounded-lg transition-all duration-300 ${
-              activeItem === 'services' ? 'bg-[#556b2f]/15 text-[#556b2f] -translate-y-0.5 scale-105' : 'text-[#66774c]'
+              activeItem === 'services' ? 'bg-[#556b2f]/15 text-[#556b2f] -translate-y-0.5 scale-105' : 'text-[#424d31]'
             }`}>
               <Wrench className="w-5 h-5 transition-transform duration-200" />
             </div>
             <span className={`text-[11px] font-heading uppercase tracking-wider transition-all duration-200 ${
-              activeItem === 'services' ? 'text-[#556b2f] font-bold' : 'text-[#66774c] font-medium'
+              activeItem === 'services' ? 'text-[#556b2f] font-bold' : 'text-[#424d31] font-medium'
             }`}>
               Services
             </span>
@@ -144,12 +144,12 @@ export const AppBottomNav: React.FC<AppBottomNavProps> = ({ onNavigate }) => {
             className="flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition-transform active:scale-90 duration-150 cursor-pointer min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#556b2f]"
           >
             <div className={`p-1 rounded-lg transition-all duration-300 ${
-              activeItem === 'workshop' ? 'bg-[#556b2f]/15 text-[#556b2f] -translate-y-0.5 scale-105' : 'text-[#66774c]'
+              activeItem === 'workshop' ? 'bg-[#556b2f]/15 text-[#556b2f] -translate-y-0.5 scale-105' : 'text-[#424d31]'
             }`}>
               <MapPin className="w-5 h-5 transition-transform duration-200" />
             </div>
             <span className={`text-[11px] font-heading uppercase tracking-wider transition-all duration-200 ${
-              activeItem === 'workshop' ? 'text-[#556b2f] font-bold' : 'text-[#66774c] font-medium'
+              activeItem === 'workshop' ? 'text-[#556b2f] font-bold' : 'text-[#424d31] font-medium'
             }`}>
               Workshop
             </span>

@@ -1,7 +1,7 @@
 {
   "outputDirectory": "maac-wheels-main/dist",
-  "installCommand": "npm --prefix maac-wheels-main install",
-  "buildCommand": "npm --prefix maac-wheels-main run build",
+  "installCommand": "cd maac-wheels-main && npm install",
+  "buildCommand": "cd maac-wheels-main && npm run build",
   "cleanUrls": true,
   "trailingSlash": false
 }

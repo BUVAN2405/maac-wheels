@@ -118,7 +118,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
               >
                 <Wrench className="w-4 h-4 text-[#556b2f]" />
                 <span>Our Services</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesMenuOpen ? 'rotate-180 text-[#556b2f]' : 'text-[#66774c]'}`} />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesMenuOpen ? 'rotate-180 text-[#556b2f]' : 'text-[#424d31]'}`} />
               </button>
 
               {servicesMenuOpen && (
@@ -148,7 +148,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
                       >
                         <div>
                           <p className="text-xs font-heading uppercase text-[#1c2610] group-hover:text-[#556b2f] font-bold">{s.title}</p>
-                          <p className="text-xs text-[#66774c] truncate max-w-[220px]">{s.subtitle}</p>
+                          <p className="text-xs text-[#424d31] truncate max-w-[220px]">{s.subtitle}</p>
                         </div>
                         <span className="text-xs font-mono-code text-[#556b2f] font-medium ml-2">
                           {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
@@ -290,7 +290,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
                   >
                     <div className="pr-2">
                       <p className="text-xs sm:text-sm font-heading font-bold text-[#1c2610] uppercase">{s.title}</p>
-                      <p className="text-xs text-[#66774c] truncate max-w-[200px]">{s.subtitle}</p>
+                      <p className="text-xs text-[#424d31] truncate max-w-[200px]">{s.subtitle}</p>
                     </div>
                     <ArrowRight className="w-4 h-4 text-[#556b2f] shrink-0" />
                   </a>

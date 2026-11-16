@@ -203,7 +203,7 @@ export const ContactSection: React.FC = () => {
                   >
                     {WORKSHOP_DETAILS.phone}
                   </a>
-                  <span className="font-body text-xs text-[#66774c] block mt-1">Direct line to shop technicians</span>
+                  <span className="font-body text-xs text-[#424d31] block mt-1">Direct line to shop technicians</span>
                 </div>
                 <a
                   href={`https://wa.me/${WORKSHOP_DETAILS.whatsappRaw}?text=${encodeURIComponent('Hello MAAC Wheels & Accessories Kumbakonam, I would like to inquire regarding vehicle fitments.')}`}
@@ -225,7 +225,7 @@ export const ContactSection: React.FC = () => {
                   <span>Mon – Sat</span>
                 </div>
                 <p className="text-[#1c2610] font-heading font-bold text-sm sm:text-base">9:30 AM – 8:30 PM</p>
-                <p className="text-xs text-[#66774c] mt-0.5 font-body">Full Bay Active</p>
+                <p className="text-xs text-[#424d31] mt-0.5 font-body">Full Bay Active</p>
               </div>
 
               <div className="p-3.5 sm:p-4 bg-[#e5e2de] border border-[#d8d4cf] rounded-xl">
@@ -234,7 +234,7 @@ export const ContactSection: React.FC = () => {
                   <span>Sunday</span>
                 </div>
                 <p className="text-[#1c2610] font-heading font-bold text-sm sm:text-base">10:00 AM – 4:00 PM</p>
-                <p className="text-xs text-[#66774c] mt-0.5 font-body">Consultation Bay</p>
+                <p className="text-xs text-[#424d31] mt-0.5 font-body">Consultation Bay</p>
               </div>
             </div>
 
@@ -361,7 +361,7 @@ export const ContactSection: React.FC = () => {
               </button>
             </form>
 
-            <div className="mt-4 pt-3 border-t border-[#d8d4cf] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 text-xs text-[#66774c] font-body">
+            <div className="mt-4 pt-3 border-t border-[#d8d4cf] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 text-xs text-[#424d31] font-body">
               <span>* WhatsApp pre-populates with your full vehicle details for technician review.</span>
               <span className="text-[#556b2f] font-heading font-bold uppercase text-xs flex items-center gap-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#556b2f]" />

@@ -56,12 +56,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </div>
             </div>
 
-            <p className="text-xs sm:text-sm text-[#c5cbbd]/85 font-body leading-relaxed max-w-md">
+            <p className="text-xs sm:text-sm text-[#d4e3be] font-body leading-relaxed max-w-md">
               Car accessories, alloy wheels, 10H ceramic coating, self-healing PPF, custom Nappa leather seat covers, audio systems, and Bi-LED projector headlights in Kumbakonam, Tamil Nadu.
             </p>
 
             <div className="flex items-center gap-2 text-[#f2f0ef] text-xs sm:text-sm font-body pt-0.5">
-              <ShieldCheck className="w-4 h-4 text-[#8ea85c] shrink-0" />
+              <ShieldCheck className="w-4 h-4 text-[#b4c79a] shrink-0" />
               <span>100% Fitment Verification & OEM Factory Warranty Compliant</span>
             </div>
           </div>
@@ -69,10 +69,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* COLUMN 2: Signature Services with direct Dynamic Page links */}
           <div className="space-y-3">
             <h4 className="font-heading text-xs sm:text-sm text-[#f2f0ef] uppercase tracking-wider font-bold flex items-center gap-2">
-              <Wrench className="w-4 h-4 text-[#8ea85c] shrink-0" />
+              <Wrench className="w-4 h-4 text-[#b4c79a] shrink-0" />
               <span>Workshop Services</span>
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm font-body text-[#c5cbbd]/85">
+            <ul className="space-y-2 text-xs sm:text-sm font-body text-[#d4e3be]">
               {SERVICES.map((s) => (
                 <li key={s.id}>
                   <a
@@ -83,7 +83,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                     }}
                     className="hover:text-[#f2f0ef] transition-colors cursor-pointer text-left flex items-center gap-1.5 py-0.5 w-full group"
                   >
-                    <ArrowRight className="w-3 h-3 text-[#8ea85c] opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+                    <ArrowRight className="w-3 h-3 text-[#b4c79a] opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
                     <span className="hover:underline underline-offset-2">{s.title}</span>
                   </a>
                 </li>
@@ -94,12 +94,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* COLUMN 3: Workshop Facility & Hours */}
           <div className="space-y-3">
             <h4 className="font-heading text-xs sm:text-sm text-[#f2f0ef] font-bold uppercase tracking-wider flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-[#8ea85c] shrink-0" />
+              <MapPin className="w-4 h-4 text-[#b4c79a] shrink-0" />
               <span>Workshop Desk</span>
             </h4>
-            <div className="space-y-2.5 text-xs sm:text-sm font-body text-[#c5cbbd]/85">
+            <div className="space-y-2.5 text-xs sm:text-sm font-body text-[#d4e3be]">
               <div className="flex items-start gap-2">
-                <Compass className="w-4 h-4 text-[#8ea85c] shrink-0 mt-0.5" />
+                <Compass className="w-4 h-4 text-[#b4c79a] shrink-0 mt-0.5" />
                 <a
                   href={WORKSHOP_DETAILS.googleMapsUrl}
                   target="_blank"
@@ -110,14 +110,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-[#8ea85c] shrink-0" />
+                <Clock className="w-4 h-4 text-[#b4c79a] shrink-0" />
                 <span>{WORKSHOP_DETAILS.hours}</span>
               </div>
               <div className="flex items-center gap-2">
-                <PhoneCall className="w-4 h-4 text-[#8ea85c] shrink-0" />
+                <PhoneCall className="w-4 h-4 text-[#b4c79a] shrink-0" />
                 <a
                   href={`tel:${WORKSHOP_DETAILS.phone.replace(/\s+/g, '')}`}
-                  className="hover:text-[#f2f0ef] font-semibold text-[#8ea85c] transition-colors"
+                  className="hover:text-[#f2f0ef] font-semibold text-[#b4c79a] transition-colors"
                 >
                   {WORKSHOP_DETAILS.phone}
                 </a>
@@ -130,7 +130,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <h4 className="font-heading text-xs sm:text-sm text-[#f2f0ef] font-bold uppercase tracking-wider">
               VIP Fitment Alerts
             </h4>
-            <p className="text-xs text-[#c5cbbd]/80 leading-relaxed font-body">
+            <p className="text-xs text-[#d4e3be] leading-relaxed font-body">
               Receive notifications on rare alloy wheel arrivals, seasonal detailing packages, and product launches in Kumbakonam.
             </p>
             <form onSubmit={handleSubscribe} className="space-y-2">
@@ -166,11 +166,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         </div>
 
         {/* BOTTOM ATTRIBUTION BAR */}
-        <div className="pt-8 border-t border-[#3a4a20] flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-[#c5cbbd]/70 text-[11px] font-body">
+        <div className="pt-8 border-t border-[#3a4a20] flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-[#b4c79a] text-[11px] font-body">
           <p>
             &copy; {new Date().getFullYear()} MAAC Wheels and Accessories, NH 36 Bypass, Koranattukkaruppur, Kumbakonam 612501.
           </p>
-          <p className="font-heading uppercase tracking-wider text-[#8ea85c] font-bold">
+          <p className="font-heading uppercase tracking-wider text-[#b4c79a] font-bold">
             Powered by - VelzenLabs
           </p>
         </div>

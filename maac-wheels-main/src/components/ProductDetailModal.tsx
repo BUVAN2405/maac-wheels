@@ -41,6 +41,10 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
             <img
               src={product.image}
               alt={product.name}
+              width={600}
+              height={600}
+              loading="lazy"
+              decoding="async"
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover object-center"
             />
@@ -64,7 +68,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                 <span className="text-[#556b2f] font-bold uppercase tracking-wider">
                   {product.categoryName} • {product.subCategoryName}
                 </span>
-                <span className="text-[#66774c] font-mono-code">SKU: {product.sku}</span>
+                <span className="text-[#424d31] font-mono-code">SKU: {product.sku}</span>
               </div>
 
               {/* Product Subheading / Name */}
@@ -79,7 +83,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                   <span className="ml-1 font-bold tabular-nums text-[#1c2610]">{product.rating.toFixed(1)}</span>
                 </div>
                 <span className="text-[#d8d4cf]">·</span>
-                <span className="text-[#66774c]">{product.reviewsCount} Fitment Verified Reviews</span>
+                <span className="text-[#424d31]">{product.reviewsCount} Fitment Verified Reviews</span>
               </div>
 
               {/* Pricing */}
@@ -92,7 +96,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                     ₹{product.compareAtPrice.toLocaleString('en-IN')}
                   </span>
                 )}
-                <span className="text-xs font-label text-[#66774c]">MRP incl. GST</span>
+                <span className="text-xs font-label text-[#424d31]">MRP incl. GST</span>
               </div>
 
               {/* Workshop Availability Status */}

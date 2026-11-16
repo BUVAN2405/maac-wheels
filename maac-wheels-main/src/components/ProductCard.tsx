@@ -28,6 +28,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <img
           src={product.image}
           alt={product.name}
+          width={400}
+          height={300}
+          decoding="async"
           referrerPolicy="no-referrer"
           className="w-full h-full object-cover object-center transition-transform duration-300 ease-out group-hover:scale-105"
           loading="lazy"
@@ -90,7 +93,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
           {/* Compact 1-line key specs */}
           {product.specs && Object.keys(product.specs).length > 0 && (
-            <div className="mt-1.5 flex items-center gap-1.5 text-[9px] sm:text-[10px] text-[#66774c] overflow-hidden truncate">
+            <div className="mt-1.5 flex items-center gap-1.5 text-[9px] sm:text-[10px] text-[#424d31] overflow-hidden truncate">
               {Object.entries(product.specs).slice(0, 2).map(([key, value], idx) => (
                 <span key={key} className="inline-flex items-center gap-1 truncate shrink-0">
                   {idx > 0 && <span className="text-[#d8d4cf]">•</span>}

@@ -85,7 +85,9 @@ export function ParallaxComponent({
             <img 
               src={layer1Image} 
               loading="eager" 
+              decoding="async"
               width="1920" 
+              height="1080"
               data-parallax-layer="1" 
               alt="Rugged mountain landscape background" 
               className="parallax__layer-img" 
@@ -93,7 +95,9 @@ export function ParallaxComponent({
             <img 
               src={layer2Image} 
               loading="eager" 
+              decoding="async"
               width="1920" 
+              height="1080"
               data-parallax-layer="2" 
               alt="Land Rover traversing terrain" 
               className="parallax__layer-img" 
@@ -104,7 +108,9 @@ export function ParallaxComponent({
             <img 
               src={layer4Image} 
               loading="eager" 
+              decoding="async"
               width="1920" 
+              height="1080"
               data-parallax-layer="4" 
               alt="Land Rover luxury front view" 
               className="parallax__layer-img" 
