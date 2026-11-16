@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { ArrowLeft, Wrench } from 'lucide-react';
 import { Navbar } from './components/Navbar.tsx';
 import { HeroSection } from './components/HeroSection.tsx';
 import { ServicesSection } from './components/ServicesSection.tsx';
-import { ServiceDetailPage } from './components/ServiceDetailPage.tsx';
 import { ContactSection } from './components/ContactSection.tsx';
 import { WhatsAppButton } from './components/WhatsAppButton.tsx';
 import { AppBottomNav } from './components/AppBottomNav.tsx';
 import { Footer } from './components/Footer.tsx';
 import { OfflineIndicator } from './components/ErrorPages.tsx';
+import { ServiceDetailSkeleton } from './components/Skeletons.tsx';
 import { initSmoothScroll, scrollToTarget } from './services/smoothScroll.ts';
 import {
   setPageSEO,
@@ -18,6 +18,11 @@ import {
   getBreadcrumbSchema,
   getFAQSchema
 } from './services/seo.ts';
+
+// Lazy-load dynamic service detail route with route-level skeleton fallback
+const ServiceDetailPage = lazy(() =>
+  import('./components/ServiceDetailPage.tsx').then((m) => ({ default: m.ServiceDetailPage }))
+);
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState<string>(() => {
@@ -114,8 +119,10 @@ export default function App() {
 
       <main className="flex-1">
         {serviceId ? (
-          /* Dynamic Service Detail View */
-          <ServiceDetailPage serviceId={serviceId} onNavigate={navigateTo} />
+          /* Dynamic Service Detail View with Suspense and Fixed-Height Skeleton */
+          <Suspense fallback={<ServiceDetailSkeleton />}>
+            <ServiceDetailPage serviceId={serviceId} onNavigate={navigateTo} />
+          </Suspense>
         ) : isUnknownRoute ? (
           /* Real 404 View for Unknown Slugs */
           <section className="min-h-[70vh] flex flex-col items-center justify-center px-4 py-16 text-center max-w-xl mx-auto">

@@ -133,12 +133,25 @@ function buildPageHtml(
     schemaScripts
   );
 
-  // Inject prerendered semantic HTML inside #root for bots/no-JS crawlers
-  out = replaceTag(
-    out,
-    /<div\s+id="root"><\/div>/i,
-    `<div id="root">${options.fallbackBodyHtml}</div>`
-  );
+  // Inject prerendered semantic HTML inside .sr-only container for bots and screen readers,
+  // preserving the instant visual skeleton inside #root for clean first paint.
+  if (/<div id="prerender-seo-content"[^>]*>[\s\S]*?<\/div>/i.test(out)) {
+    out = out.replace(
+      /<div id="prerender-seo-content"[^>]*>[\s\S]*?<\/div>/i,
+      `<div id="prerender-seo-content" class="sr-only" aria-live="polite">${options.fallbackBodyHtml}</div>`
+    );
+  } else if (/<div\s+id="root"><\/div>/i.test(out)) {
+    out = replaceTag(
+      out,
+      /<div\s+id="root"><\/div>/i,
+      `<div id="root"><div id="prerender-seo-content" class="sr-only" aria-live="polite">${options.fallbackBodyHtml}</div></div>`
+    );
+  } else if (/<div\s+id="root"[^>]*>/i.test(out)) {
+    out = out.replace(
+      /(<div\s+id="root"[^>]*>)/i,
+      `$1\n      <div id="prerender-seo-content" class="sr-only" aria-live="polite">${options.fallbackBodyHtml}</div>`
+    );
+  }
 
   return out;
 }

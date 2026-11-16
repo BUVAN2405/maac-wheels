@@ -50,7 +50,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreServices }) =
         </h1>
 
         <p className="font-body text-[7.5px] sm:text-xs lg:text-sm leading-tight sm:leading-relaxed text-[#2e3d1f] max-w-[245px] sm:max-w-xl mx-auto mb-1 sm:mb-5">
-          Seat covers, ceramic coating, car audio, sun films, and alloy wheels at NH 36 Bypass, Koranattukkaruppur (612501).
+          Seat covers, ceramic coating, car audio, sun films, and alloy wheels - everything done under one roof.
         </p>
 
         <button
